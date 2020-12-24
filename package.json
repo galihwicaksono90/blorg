@@ -14,7 +14,10 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
     "gatsby": "^2.26.1",
+    "gatsby-plugin-emotion": "^5.1.0",
     "gatsby-source-filesystem": "^2.8.1",
     "gatsby-transformer-orga": "^2.3.13",
     "react": "^16.12.0",

@@ -6,5 +6,40 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  siteMetadata: {
+    title: `Goblorg`,
+    author: `Galih Wicaksono`,
+    description: `A self taught front-end developer documenting and sharing his learning process`,
+    // siteUrl: `https://ansonlowzf.com`,
+    social: [
+      {
+        name: `Twitter`,
+        url: `https://twitter.com/galihwicaksono`,
+      },
+      {
+        name: `Github`,
+        url: `https://github.com/gorillahobo`,
+      },
+      {
+        name: `Proudly hosted on Netlify`,
+        url: `https://www.galihwicaksono.com/`,
+      },
+    ],
+  },
+  plugins: [
+    `gatsby-transformer-orga`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-emotion",
+      options: {
+        //insert options here
+      },
+    },
+  ],
 }

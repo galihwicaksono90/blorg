@@ -1,5 +1,5 @@
-import React, { useContext } from "react"
-import { graphql, Link } from "gatsby"
+import React from "react"
+import { graphql } from "gatsby"
 
 import Layout from "../components/Layout.js"
 import ListItems from "../components/ListItems"

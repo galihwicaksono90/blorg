@@ -32,7 +32,6 @@ const Header = () => {
       site {
         siteMetadata {
           title
-          author
         }
       }
     }
@@ -42,9 +41,6 @@ const Header = () => {
       <Link to="/">
         <h1>{data.site.siteMetadata.title}</h1>
       </Link>
-      <p>
-        <strong>by {data.site.siteMetadata.author}</strong>
-      </p>
     </StyledHeader>
   )
 }

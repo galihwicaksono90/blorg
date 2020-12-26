@@ -22,11 +22,18 @@ exports.createPages = async ({ actions, graphql }) => {
 
   result.data.allOrgContent.edges.forEach(({ node }) =>
     createPage({
-      path: node.slug,
+      path: `/blog${node.slug}`,
       component: blogTemplate,
       context: {
         id: node.id,
       },
     })
   )
+}
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { path } = page
+  console.log("===============================")
+  console.log({ page })
+  console.log("===============================")
 }

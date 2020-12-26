@@ -28,7 +28,7 @@ const ListItem = ({ node }) => {
   return (
     <StyledListItem>
       <div>
-        <Link to={node.slug}>
+        <Link to={`/blog${node.slug}`}>
           <h2>{node.metadata.title}</h2>
         </Link>
         <p className="date">{node.metadata.date}</p>

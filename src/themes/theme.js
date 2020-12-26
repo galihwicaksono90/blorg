@@ -6,14 +6,14 @@ const blue = "#458588"
 const magenta = "#b16286"
 const cyan = "#689d6a"
 const white = "#a89984"
-const brblack = "#928374"
-const brred = "#fb4934"
-const brgreen = "#b8bb26"
-const bryellow = "#fabd2f"
+// const brblack = "#928374"
+// const brred = "#fb4934"
+// const brgreen = "#b8bb26"
+// const bryellow = "#fabd2f"
 const brblue = "#83a598"
-const brmagenta = "#d3869b"
-const brcyan = "#8ec07c"
-const brwhite = "#ebdbb2"
+// const brmagenta = "#d3869b"
+// const brcyan = "#8ec07c"
+// const brwhite = "#ebdbb2"
 const background = "#282828"
 const foreground = "#FFFFFF"
 
@@ -47,6 +47,8 @@ const theme = {
     magenta: magenta,
     cyan: cyan,
     brblue: brblue,
+    white: white,
+    black: black,
   },
 }
 

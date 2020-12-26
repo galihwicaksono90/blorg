@@ -11,6 +11,9 @@ const StyledContent = styled.div`
   }
   & p {
     text-indent: 2rem;
+    & code {
+      font-family: ${props => props.theme.fonts.code};
+    }
   }
 
   & figure {
@@ -28,6 +31,7 @@ const StyledContent = styled.div`
       max-width: 100%;
     }
   }
+
   & pre {
     width: 100%;
     padding: ${props => props.theme.spacings.small};

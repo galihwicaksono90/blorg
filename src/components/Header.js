@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
+import Navbar from "./Navbar"
 
 const StyledHeader = styled.div`
   background-color: ${props => props.theme.colors.dark.foreground};
@@ -9,14 +10,13 @@ const StyledHeader = styled.div`
 
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
-  flex-direction: column;
+  justify-content: space-between;
 
   border-bottom: solid 2px black;
   color: ${props => props.theme.colors.dark.background};
 
   & h1 {
-    margin: ${props => props.theme.spacings.large} 0 0 0;
+    // margin: ${props => props.theme.spacings.small} 0 0 0;
     font-size: 3rem;
     font-family: "Cascadia Code";
   }
@@ -26,7 +26,7 @@ const StyledHeader = styled.div`
     color: ${({ theme }) => theme.colors.blue};
   }
 `
-const Header = () => {
+const Header = ({ currentPage = "" }) => {
   const data = useStaticQuery(graphql`
     query headerQuery {
       site {
@@ -38,6 +38,7 @@ const Header = () => {
   `)
   return (
     <StyledHeader>
+      <Navbar currentPage={currentPage} />
       <Link to="/">
         <h1>{data.site.siteMetadata.title}</h1>
       </Link>

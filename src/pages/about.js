@@ -5,7 +5,7 @@ import Header from "../components/Header"
 const About = () => {
   return (
     <Layout>
-      <Header />
+      <Header currentPage={"about"} />
       <h1>About</h1>
     </Layout>
   )

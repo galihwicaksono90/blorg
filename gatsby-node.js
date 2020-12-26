@@ -31,9 +31,9 @@ exports.createPages = async ({ actions, graphql }) => {
   )
 }
 
-exports.onCreatePage = async ({ page, actions }) => {
-  const { path } = page
-  console.log("===============================")
-  console.log({ page })
-  console.log("===============================")
-}
+// exports.onCreatePage = async ({ page, actions }) => {
+//   const { path } = page
+//   console.log("===============================")
+//   console.log({ page })
+//   console.log("===============================")
+// }

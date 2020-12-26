@@ -11,7 +11,7 @@ const Blog = ({ data }) => {
   const { edges } = data.allOrgContent
   return (
     <Layout>
-      <Header name={"Galih Wicaksono"} title={siteMetadata.title} />
+      <Header currentPage={"blog"} />
       <ListItems>
         {edges.map(({ node }) => (
           <ListItem node={node} key={node.id} />

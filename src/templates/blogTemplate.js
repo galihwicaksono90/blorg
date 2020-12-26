@@ -11,7 +11,7 @@ const BlogTemplate = ({ data }) => {
   const { html, timeToRead } = data.orgContent
   return (
     <Layout>
-      <Header />
+      <Header currentPage={"blog"} />
       <BlogPostLayout>
         <PostTitle
           title={title}

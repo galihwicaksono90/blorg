@@ -27,12 +27,17 @@ module.exports = {
     ],
   },
   plugins: [
-    `gatsby-transformer-orga`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
+        // name: `pages`,
         path: `${__dirname}/src/posts/`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-orga`,
+      options: {
+        // askdjhf
       },
     },
     {

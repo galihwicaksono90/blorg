@@ -1,21 +1,22 @@
-import React from "react"
+import React, { useContext } from "react"
 import { graphql, Link } from "gatsby"
+
 import Layout from "../components/Layout.js"
-import styled from "@emotion/styled"
+import ListItems from "../components/ListItems"
+import ListItem from "../components/ListItem"
+import Header from "../components/Header"
 
 const Home = ({ data }) => {
+  const { siteMetadata } = data.site
+  const { edges } = data.allOrgContent
   return (
-    <Layout title={data.site.siteMetadata.title}>
-      <div>
-        <h1>Hello World</h1>
-        <ul>
-          {data.allOrgContent.edges.map(edge => (
-            <li>
-              <Link to={edge.node.slug}>{edge.node.metadata.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <Layout>
+      <Header name={"Galih Wicaksono"} title={siteMetadata.title} />
+      <ListItems>
+        {edges.map(({ node }) => (
+          <ListItem node={node} key={node.id} />
+        ))}
+      </ListItems>
     </Layout>
   )
 }
@@ -30,9 +31,12 @@ export const query = graphql`
     allOrgContent {
       edges {
         node {
+          id
           slug
           metadata {
             title
+            description
+            date(formatString: "DD MMMM YYYY")
           }
         }
       }

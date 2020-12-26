@@ -6,6 +6,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
+    "predevelop": "rm -rf .cache",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
@@ -21,7 +22,8 @@
     "gatsby-source-filesystem": "^2.8.1",
     "gatsby-transformer-orga": "^2.3.13",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-icons": "^4.1.0"
   },
   "devDependencies": {
     "prettier": "2.2.1"

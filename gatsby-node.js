@@ -9,12 +9,8 @@ exports.createPages = async ({ actions, graphql }) => {
       allOrgContent {
         edges {
           node {
-            metadata {
-              title
-              date(formatString: "DD, MMMM YYYY")
-            }
+            id
             slug
-            html
           }
         }
       }
@@ -29,9 +25,7 @@ exports.createPages = async ({ actions, graphql }) => {
       path: node.slug,
       component: blogTemplate,
       context: {
-        title: node.metadata.title,
-        date: node.metadata.date,
-        content: node.html,
+        id: node.id,
       },
     })
   )

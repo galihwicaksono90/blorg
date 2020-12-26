@@ -1,26 +1,27 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "@emotion/styled"
 
-const Layout = ({ children, className, title }) => {
-  return (
-    <div className={className}>
-      <h1>{title}</h1>
-      {children}
-    </div>
-  )
+const Layout = props => {
+  return <div className={props.className}>{props.children}</div>
 }
 
-StyledLayout = styled(Layout)`
+const StyledLayout = styled(Layout)`
+  font-family: ${props => props.theme.fonts.main};
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: blue;
+  align-items: flex-start;
+  padding: ${props => props.theme.spacings.large};
+  background-color: ${props => props.theme.colors.light.background};
+  color: ${props => props.theme.colors.light.foreground};
 
-  & div {
-    width: 70%;
-    background-color: purple;
+  & a {
+    color: ${props => props.theme.colors.blue};
+    text-decoration: none;
+    &:visited {
+      color: ${props => props.theme.colors.magenta};
+    }
   }
 `
 

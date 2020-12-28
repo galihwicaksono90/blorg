@@ -12,6 +12,11 @@ export const wrapRootElement = ({ element }) => {
             padding: 0;
             margin: 0;
           }
+          html,
+          body {
+            font-family: "Jost*";
+            font-size: 16px;
+          }
         `}
       />
       {element}

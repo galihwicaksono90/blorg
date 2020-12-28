@@ -3,29 +3,29 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Navbar from "./Navbar"
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
+  position: sticky;
+  top: 0;
+  left: 0;
   background-color: ${props => props.theme.colors.dark.foreground};
+
   width: 100%;
-  padding: 1rem;
+  height: auto;
+  padding: ${props => props.theme.spacings.small}
+    ${props => props.theme.spacings.medium};
 
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
   justify-content: space-between;
 
   border-bottom: solid 2px black;
   color: ${props => props.theme.colors.dark.background};
-
   & h1 {
-    // margin: ${props => props.theme.spacings.small} 0 0 0;
-    font-size: 3rem;
-    font-family: "Cascadia Code";
-  }
-
-  & a,
-  a:visited {
-    color: ${({ theme }) => theme.colors.blue};
+    font-size: 2rem;
+    color: ${props => props.theme.colors.blue};
   }
 `
+
 const Header = ({ currentPage = "" }) => {
   const data = useStaticQuery(graphql`
     query headerQuery {
@@ -37,7 +37,7 @@ const Header = ({ currentPage = "" }) => {
     }
   `)
   return (
-    <StyledHeader>
+    <StyledHeader currentPage={currentPage}>
       <Navbar currentPage={currentPage} />
       <Link to="/">
         <h1>{data.site.siteMetadata.title}</h1>

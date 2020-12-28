@@ -2,32 +2,26 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout.js"
-import ListItems from "../components/ListItems"
-import ListItem from "../components/ListItem"
+import PostListItems from "../components/PostListItems"
+import PostListItem from "../components/PostListItem"
 import Header from "../components/Header"
 
 const Blog = ({ data }) => {
-  const { siteMetadata } = data.site
   const { edges } = data.allOrgContent
   return (
     <Layout>
       <Header currentPage={"blog"} />
-      <ListItems>
+      <PostListItems>
         {edges.map(({ node }) => (
-          <ListItem node={node} key={node.id} />
+          <PostListItem node={node} key={node.id} />
         ))}
-      </ListItems>
+      </PostListItems>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query indexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+  query blogQuery {
     allOrgContent {
       edges {
         node {

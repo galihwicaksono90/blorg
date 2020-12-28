@@ -1,13 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Navbar from "./Navbar"
+import Sidebar from "./Sidebar"
 
-const StyledHeader = styled.header`
+const MainHeader = styled.header`
   position: sticky;
   top: 0;
   left: 0;
+  z-index: 1;
+`
+const StyledHeader = styled.div`
   background-color: ${props => props.theme.colors.dark.foreground};
+  & a {
+    text-decoration: none;
+  }
 
   width: 100%;
   height: auto;
@@ -27,6 +34,8 @@ const StyledHeader = styled.header`
 `
 
 const Header = ({ currentPage = "" }) => {
+  const [sidebar, setSidebar] = useState(false)
+
   const data = useStaticQuery(graphql`
     query headerQuery {
       site {
@@ -37,12 +46,19 @@ const Header = ({ currentPage = "" }) => {
     }
   `)
   return (
-    <StyledHeader currentPage={currentPage}>
-      <Navbar currentPage={currentPage} />
-      <Link to="/">
-        <h1>{data.site.siteMetadata.title}</h1>
-      </Link>
-    </StyledHeader>
+    <MainHeader>
+      <StyledHeader currentPage={currentPage}>
+        <Navbar
+          currentPage={currentPage}
+          sidebarHandler={() => setSidebar(!sidebar)}
+          sidebar={sidebar}
+        />
+        <Link to="/">
+          <h1>{data.site.siteMetadata.title}</h1>
+        </Link>
+      </StyledHeader>
+      <Sidebar sidebar={sidebar} currentPage={currentPage} />
+    </MainHeader>
   )
 }
 

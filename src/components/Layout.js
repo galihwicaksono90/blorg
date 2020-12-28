@@ -18,6 +18,7 @@ const StyledLayout = styled(Layout)`
 
   & a {
     text-decoration: none;
+    color: ${props => props.theme.colors.blue};
   }
 `
 

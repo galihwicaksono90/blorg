@@ -12,18 +12,21 @@ const BlogTemplate = ({ data }) => {
   const { html, timeToRead } = data.orgContent
   console.log(image__https)
   return (
-    <Layout>
+    <>
       <Header currentPage={"blog"} />
-      <PostLayout>
-        <PostTitle
-          title={title}
-          date={date}
-          timeToRead={timeToRead}
-          tags={tags}
-        />
-        <Content content={html} />
-      </PostLayout>
-    </Layout>
+
+      <Layout>
+        <PostLayout>
+          <PostTitle
+            title={title}
+            date={date}
+            timeToRead={timeToRead}
+            tags={tags}
+          />
+          <Content content={html} />
+        </PostLayout>
+      </Layout>
+    </>
   )
 }
 

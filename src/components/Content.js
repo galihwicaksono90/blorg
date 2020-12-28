@@ -33,32 +33,36 @@ const StyledContent = styled.div`
     background: #282828;
     color: #ebdbb2;
     padding: 1rem;
-    max-width: 100%;
   }
   & code {
-    font-family: "Cascadia Code";
+    white-space: pre;
     font-size: 16px;
-    & span {
+    & span.hljs-title {
+      color: ${props => props.theme.colors.green};
+    }
+    & span.hljs-keyword {
+      color: ${props => props.theme.colors.brred};
+    }
+    & span.hljs-string {
+      color: ${props => props.theme.colors.green};
+    }
+    & span.hljs-name {
+      color: ${props => props.theme.colors.yellow};
+    }
+    & span.hljs-params {
+      color: ${props => props.theme.colors.green};
     }
   }
-  // & pre {
-  //   padding: ${props => props.theme.spacings.small};
-  //   max-width: 100%;
-  //   background: #282828;
-  //   & code {
-  //     display: block;
-  //     color: #ebdbb2;
-  //     font-family: ${props => props.theme.fonts.code};
-  //     font-size: 0.9rem;
-  //     overflow: auto;
-  //     min-width: 0;
-  //   }
-  //   &.verse {
-  //     overflow-x: auto;
-  //     color: red;
-  //     background: white;
-  //   }
-  // }
+
+  & blockquote {
+    font-family: serif;
+    max-width: 80%;
+    padding: ${props => props.theme.spacings.medium};
+    margin: ${props => props.theme.spacings.small} auto;
+    background-color: lightgrey;
+    text-align: center;
+    border-left: 5px solid grey;
+  }
 `
 
 const Content = ({ content = "<h1>No content yet</h1>" }) => {

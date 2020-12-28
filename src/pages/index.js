@@ -14,12 +14,14 @@ const IndexContent = styled.div`
 
 const Home = ({ data }) => {
   return (
-    <Layout>
+    <>
       <Header currentPage="index" />
-      <IndexContent>
-        <h1>Welcome to Goblorg</h1>
-      </IndexContent>
-    </Layout>
+      <Layout>
+        <IndexContent>
+          <h1>Welcome to Goblorg</h1>
+        </IndexContent>
+      </Layout>
+    </>
   )
 }
 

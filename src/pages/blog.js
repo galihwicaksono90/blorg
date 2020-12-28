@@ -9,24 +9,27 @@ import Header from "../components/Header"
 const Blog = ({ data }) => {
   const { edges } = data.allOrgContent
   return (
-    <Layout>
+    <>
       <Header currentPage={"blog"} />
-      <PostListItems>
-        {edges.map(({ node }) => (
-          <PostListItem node={node} key={node.id} />
-        ))}
-      </PostListItems>
-    </Layout>
+      <Layout>
+        <PostListItems>
+          {edges.map(({ node }) => (
+            <PostListItem node={node} key={node.id} />
+          ))}
+        </PostListItems>
+      </Layout>
+    </>
   )
 }
 
 export const query = graphql`
   query blogQuery {
-    allOrgContent {
+    allOrgContent(sort: { fields: metadata___date, order: DESC }) {
       edges {
         node {
           id
           slug
+          timeToRead
           metadata {
             title
             description

@@ -4,10 +4,12 @@ import Header from "../components/Header"
 
 const About = () => {
   return (
-    <Layout>
+    <>
       <Header currentPage={"about"} />
-      <h1>About</h1>
-    </Layout>
+      <Layout>
+        <h1>About</h1>
+      </Layout>
+    </>
   )
 }
 

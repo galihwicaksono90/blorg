@@ -7,7 +7,7 @@ const magenta = "#b16286"
 const cyan = "#689d6a"
 const white = "#a89984"
 // const brblack = "#928374"
-// const brred = "#fb4934"
+const brred = "#fb4934"
 // const brgreen = "#b8bb26"
 // const bryellow = "#fabd2f"
 const brblue = "#83a598"
@@ -49,6 +49,7 @@ const theme = {
     brblue: brblue,
     white: white,
     black: black,
+    brred: brred,
   },
 }
 

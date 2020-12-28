@@ -1,17 +1,33 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
+import { GiHamburgerMenu } from "react-icons/gi"
+import { GrClose } from "react-icons/gr"
 
 const StyledNavbar = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
+  & .button {
+    display: none;
+    background: none;
+    border: none;
+    outline: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   @media screen and (max-width: 720px) {
     & li {
       display: none;
     }
+    & .button {
+      display: block;
+    }
   }
 `
+
 const StyledNavbarItem = styled.li`
   list-style: none;
   margin-right: ${props => props.theme.spacings.small};
@@ -22,6 +38,20 @@ const StyledNavbarItem = styled.li`
     }
   }
 `
+const StyledFloatingNavbar = styled.div`
+  display: none;
+  @media screen and (max-width: 720px) {
+    display: block;
+  }
+`
+
+const Burger = ({ sidebarHandler, sidebar }) => {
+  return (
+    <button className="button" onClick={() => sidebarHandler()}>
+      <h2>{sidebar ? <GrClose /> : <GiHamburgerMenu />}</h2>
+    </button>
+  )
+}
 
 const NavbarItem = ({ children, to, className }) => {
   return (
@@ -33,7 +63,7 @@ const NavbarItem = ({ children, to, className }) => {
   )
 }
 
-const Navbar = ({ currentPage }) => {
+const Navbar = ({ currentPage, sidebarHandler, sidebar }) => {
   return (
     <StyledNavbar>
       <NavbarItem to="/" className={currentPage === "index" ? "active" : ""}>
@@ -48,6 +78,7 @@ const Navbar = ({ currentPage }) => {
       >
         About
       </NavbarItem>
+      <Burger sidebarHandler={sidebarHandler} sidebar={sidebar} />
     </StyledNavbar>
   )
 }

@@ -2,9 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout.js"
-import PostListItems from "../components/PostListItems"
-import PostListItem from "../components/PostListItem"
+import PostCard from "../components/PostCard"
+import PostCardContent from "../components/PostCardContent"
 import Header from "../components/Header"
+import PageTitle from "../components/PageTitle"
 
 const Blog = ({ data }) => {
   const { edges } = data.allOrgContent
@@ -12,11 +13,12 @@ const Blog = ({ data }) => {
     <>
       <Header currentPage={"blog"} />
       <Layout>
-        <PostListItems>
+        <PageTitle>Blog</PageTitle>
+        <PostCard>
           {edges.map(({ node }) => (
-            <PostListItem node={node} key={node.id} />
+            <PostCardContent node={node} key={node.id} />
           ))}
-        </PostListItems>
+        </PostCard>
       </Layout>
     </>
   )
@@ -34,6 +36,7 @@ export const query = graphql`
             title
             description
             date(formatString: "DD MMMM YYYY")
+            tags
           }
         }
       }

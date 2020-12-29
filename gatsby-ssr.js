@@ -14,7 +14,8 @@ export const wrapRootElement = ({ element }) => {
           }
           html,
           body {
-            font-family: "Open Sans";
+            font-family: "Jost*";
+            font-size: 16px;
           }
         `}
       />

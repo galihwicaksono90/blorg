@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
 
@@ -40,7 +40,6 @@ const SidebarItem = ({ children, to, className }) => {
 }
 
 const Sidebar = ({ currentPage = "", sidebar }) => {
-  console.log(`ksdjsfkjshdf: ${currentPage}`)
   return (
     <StyledSidebar
       style={{ transform: `translateY(${sidebar ? "110%" : "0"})` }}

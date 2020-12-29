@@ -51,6 +51,11 @@ const theme = {
     black: black,
     brred: brred,
   },
+  shadows: {
+    shadow1: "rgba(0, 0, 0, 0.16) 0px 1px 4px;",
+    shadow2:
+      "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;",
+  },
 }
 
 export default theme

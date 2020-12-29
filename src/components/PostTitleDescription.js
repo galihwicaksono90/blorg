@@ -6,7 +6,7 @@ const TitleDescriptions = styled.ul`
   display: flex;
 `
 const StyledTitleDescription = styled.li`
-  color: ${props => props.theme.colors.blue};
+  color: ${props => props.theme.colors.brblue};
   display: flex;
   align-items: center;
   justify-content: flex-start;

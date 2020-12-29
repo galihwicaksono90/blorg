@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "@emotion/styled"
-import PostTags from "./PostTags"
 import PostTitleDescription from "./PostTitleDescription"
 
 const StyledPostTitle = styled.header`
@@ -13,6 +12,8 @@ const StyledPostTitle = styled.header`
 
   & h1 {
     font-family: ${props => props.theme.fonts.sans};
+    color: ${props => props.theme.colors.blue};
+    font-size: 3rem;
   }
 `
 

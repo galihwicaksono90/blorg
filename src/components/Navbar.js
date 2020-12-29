@@ -38,12 +38,6 @@ const StyledNavbarItem = styled.li`
     }
   }
 `
-const StyledFloatingNavbar = styled.div`
-  display: none;
-  @media screen and (max-width: 720px) {
-    display: block;
-  }
-`
 
 const Burger = ({ sidebarHandler, sidebar }) => {
   return (

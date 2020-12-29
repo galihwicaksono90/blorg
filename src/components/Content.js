@@ -9,7 +9,7 @@ const StyledContent = styled.div`
     color: ${props => props.theme.colors.light.foreground};
   }
   & p {
-    text-indent: 2rem;
+    text-indent: ${props => props.theme.spacings.medium};
     & code {
       font-family: ${props => props.theme.fonts.code};
       overflow: hidden;
@@ -62,6 +62,15 @@ const StyledContent = styled.div`
     background-color: lightgrey;
     text-align: center;
     border-left: 5px solid grey;
+  }
+
+  & li {
+    margin-left: ${props => props.theme.spacings.medium};
+  }
+  & table {
+    width: 100%;
+    margin: 0;
+    text-align: center;
   }
 `
 

@@ -3,23 +3,14 @@ import styled from "@emotion/styled"
 
 import Layout from "../components/Layout.js"
 import Header from "../components/Header"
-
-const IndexContent = styled.div`
-  width: 100%;
-  padding: ${props => props.theme.spacings.medium};
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-`
+import PageTitle from "../components/PageTitle"
 
 const Home = ({ data }) => {
   return (
     <>
       <Header currentPage="index" />
       <Layout>
-        <IndexContent>
-          <h1>Welcome to Goblorg</h1>
-        </IndexContent>
+        <PageTitle>Home</PageTitle>
       </Layout>
     </>
   )

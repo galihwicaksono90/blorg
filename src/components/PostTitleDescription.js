@@ -26,7 +26,7 @@ const TitleDescription = ({ date = "n/a", timeToRead = "n/a" }) => {
       <StyledTitleDescription>
         <MdQueryBuilder />
         <p>
-          {timeToRead} {timeToRead === 1 ? "Minute Read" : "Minutes Read"}
+          {timeToRead} {timeToRead === 1 ? "minute read" : "minutes read"}
         </p>
       </StyledTitleDescription>
     </TitleDescriptions>

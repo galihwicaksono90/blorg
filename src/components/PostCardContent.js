@@ -6,7 +6,7 @@ import PostListDescription from "./PostListDescription"
 
 const StyledPostListItem = styled.li`
   list-style: none;
-  background-color: #f2f2f2;
+  background-color: #ebdbb2;
   padding: ${({ theme }) => theme.spacings.small};
   box-shadow: ${props => props.theme.shadows.shadow2};
   max-height: 15rem;

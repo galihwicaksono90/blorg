@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { MdDateRange, MdQueryBuilder } from "react-icons/md"
+import PostTags from "./PostTags"
 
 const StyledPostListDescriptions = styled.div`
   display: flex;

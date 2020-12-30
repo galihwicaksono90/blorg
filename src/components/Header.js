@@ -10,9 +10,11 @@ const MainHeader = styled.header`
   top: 0;
   left: 0;
   z-index: 10;
+  width: 100%;
 `
 const StyledHeader = styled.div`
   background-color: ${props => props.theme.colors.dark.foreground};
+  background-color: #ebdbb2;
   & a {
     text-decoration: none;
   }
@@ -25,7 +27,7 @@ const StyledHeader = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  border-bottom: solid 2px black;
+  border-bottom: solid 2px ${props => props.theme.colors.light.foreground};
   color: ${props => props.theme.colors.dark.background};
   & h1 {
     font-size: 2rem;

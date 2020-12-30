@@ -10,7 +10,8 @@ const StyledSidebar = styled.div`
   z-index: 1;
   top: -29%;
 
-  background-color: ${props => props.theme.colors.light.background};
+  // background-color: ${props => props.theme.colors.light.background};
+  background-color: #ebdbb2;
   ${props => console.log(props)};
   @media screen and (max-width: 720px) {
     display: flex;
@@ -45,7 +46,7 @@ const Sidebar = ({ currentPage = "", sidebar }) => {
   return (
     <StyledSidebar
       style={{
-        transform: `translateY(${sidebar ? "139%" : "0"})`,
+        transform: `translateY(${sidebar ? "150%" : "0"})`,
       }}
       sidebar={sidebar}
     >

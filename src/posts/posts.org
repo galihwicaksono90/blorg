@@ -18,35 +18,35 @@ CLOSED: [2020-12-24 Thu 16:46]
 ** First Things First... What in the hell is /org-mode/?
 This is the ~content of this~ post.Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.
 
-#+BEGIN_QUOTE
-Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.---Wayne Gretzky
-
-#+END_QUOTE
-
 #+begin_src js 
-const StyledLayout = styled(Layout)`
-  font-family: ${props => props.theme.fonts.main};
-  // width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: ${props => props.theme.spacings.medium};
-  padding-top: 0;
-  background-color: ${props => props.theme.colors.light.background};
-  color: ${props => props.theme.colors.light.foreground};
-
-  & a {
-    text-decoration: none;
-  }
-`
+const BlogTemplate = ({ data }) => {
+  const { title, date, tags, image__https } = data.orgContent.metadata
+  const { html, timeToRead } = data.orgContent
+  console.log(image__https)
+  return (
+    <>
+      <Header currentPage={"blog"} />
+      <Layout>
+        <PostLayout>
+          <PostTitle
+            title={title}
+            date={date}
+            timeToRead={timeToRead}
+            tags={tags}
+          />
+          <Content content={html} />
+        </PostLayout>
+        <Footer />
+      </Layout>
+    </>
+  )
+}
 #+end_src
 
-#+begin_src python
-def asdf (x,y):
-    print("Hello world")
+#+begin_src python :
+def asdf(x, "asdf"):
+    return x
 #+end_src
-
-If you want to checkout the org file that i am using, [[./posts.org][download this file]] and open it in your favorite text editor (assuming you haven't used emacs already. Which you will be soon).
 
 
 Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.  Etiam laoreet quam sed arcu.  Phasellus at dui in ligula mollis ultricies.  Integer placerat tristique nisl.  Praesent augue.  Fusce commodo.  Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.  Nullam libero mauris, consequat quis, varius et, dictum id, arcu.  Mauris mollis tincidunt felis.  Aliquam feugiat tellus ut neque.  Nulla facilisis, risus a rhoncus fermentum, tellus tellus lacinia purus, et dictum nunc justo sit amet elit.
@@ -56,6 +56,7 @@ Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis 
 Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam euismod tellus id erat.
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl.
+
 
 * PUBLISHED Orga Plugin Syntax :web:orgMode:
 CLOSED: [2020-12-26 Sat 07:26]

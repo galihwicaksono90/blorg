@@ -1,9 +1,8 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-const StyledPostLayout = styled.div`
-  margin: 0 auto;
-  max-width: 60rem;
+const StyledPostLayout = styled.article`
+  // margin: 0 auto;
 `
 
 const PostLayout = ({ children }) => {

@@ -28,7 +28,7 @@ const Blog = ({ data }) => {
 
 export const query = graphql`
   query blogQuery {
-    allOrgContent(sort: { fields: metadata___date, order: DESC }, limit: 10) {
+    allOrgContent(sort: { fields: metadata___date, order: DESC }, limit: 5) {
       edges {
         node {
           id

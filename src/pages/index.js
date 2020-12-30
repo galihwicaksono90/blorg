@@ -1,9 +1,9 @@
 import React from "react"
-import styled from "@emotion/styled"
 
 import Layout from "../components/Layout.js"
 import Header from "../components/Header"
 import PageTitle from "../components/PageTitle"
+import Footer from "../components/Footer"
 
 const Home = () => {
   return (
@@ -11,6 +11,7 @@ const Home = () => {
       <Header currentPage="index" />
       <Layout>
         <PageTitle>Home</PageTitle>
+        <Footer />
       </Layout>
     </>
   )

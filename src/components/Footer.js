@@ -4,7 +4,6 @@ import styled from "@emotion/styled"
 const StyledFooter = styled.footer`
   margin-top: auto;
   width: 100%;
-  // border-top: 2px solid ${props => props.theme.colors.light.foreground};
   padding: 4rem;
   height: 5rem;
   text-align: center;

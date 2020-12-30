@@ -10,10 +10,6 @@ const StyledContent = styled.div`
   }
   & p {
     text-indent: ${props => props.theme.spacings.medium};
-    & code {
-      font-family: ${props => props.theme.fonts.code};
-      overflow: hidden;
-    }
   }
 
   & figure {
@@ -29,33 +25,43 @@ const StyledContent = styled.div`
   }
 
   & pre {
-    overflow-x: auto;
     background: #282828;
-    color: #ebdbb2;
-    padding: 1rem;
-  }
-  & code {
-    white-space: pre;
-    font-size: 16px;
-    & span.hljs-title {
-      color: ${props => props.theme.colors.green};
-    }
-    & span.hljs-keyword {
-      color: ${props => props.theme.colors.brred};
-    }
-    & span.hljs-string {
-      color: ${props => props.theme.colors.green};
-    }
-    & span.hljs-name {
-      color: ${props => props.theme.colors.yellow};
-    }
-    & span.hljs-params {
-      color: ${props => props.theme.colors.green};
+    padding: ${props => props.theme.spacings.small};
+    overflow: auto;
+    & code {
+      color: #ebdbb2;
+      font-family: ${props => props.theme.fonts.code};
+      font-size: 0.9rem;
+      // &.language-js {
+      & span {
+        &.hljs-keyword {
+          color: ${props => props.theme.colors.red};
+        }
+        &.hljs-function {
+          color: ${props => props.theme.colors.green};
+        }
+        &.hljs-params {
+          color: ${props => props.theme.colors.yellow};
+        }
+        &.xml {
+          & .hljs-name {
+            color: ${props => props.theme.colors.yellow};
+          }
+          & .hljs-attr {
+            color: ${props => props.theme.colors.green};
+          }
+        }
+      }
+      // }
     }
   }
 
+  pre::-webkit-scrollbar-thumb {
+    background-color: red;
+  }
+
   & blockquote {
-    font-family: serif;
+    font-family: sans-serif;
     max-width: 80%;
     padding: ${props => props.theme.spacings.medium};
     margin: ${props => props.theme.spacings.small} auto;

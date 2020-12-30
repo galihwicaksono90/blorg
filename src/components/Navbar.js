@@ -15,6 +15,7 @@ const StyledNavbar = styled.ul`
     outline: none;
     &:hover {
       cursor: pointer;
+      color: ${props => props.theme.colors.magenta};
     }
   }
 

@@ -10,6 +10,9 @@ const StyledNavbarItem = styled.li`
     &.active {
       color: ${props => props.theme.colors.magenta};
     }
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `
 

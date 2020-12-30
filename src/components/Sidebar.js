@@ -30,13 +30,16 @@ const StyledSidebar = styled.div`
     &.active {
       color: ${props => props.theme.colors.magenta};
     }
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `
 const SidebarItem = ({ children, to, className }) => {
   return (
     <div className={className}>
       <Link to={to}>
-        <h3>{children}</h3>
+        <h3 className={className}>{children}</h3>
       </Link>
     </div>
   )

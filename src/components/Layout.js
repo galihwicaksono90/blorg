@@ -11,6 +11,9 @@ const StyledLayout = styled(Layout)`
   padding: 0 ${props => props.theme.spacings.small};
   margin: 0 auto;
 
+  display: flex;
+  flex-direction: column;
+
   background-color: ${props => props.theme.colors.light.background};
   color: ${props => props.theme.colors.light.foreground};
   font-family: ${props => props.theme.fonts.main};

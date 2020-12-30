@@ -28,10 +28,13 @@ const StyledContent = styled.div`
     background: #282828;
     padding: ${props => props.theme.spacings.small};
     overflow: auto;
+
     & code {
       color: #ebdbb2;
-      font-family: ${props => props.theme.fonts.code};
-      font-size: 0.9rem;
+      // font-family: ${props => props.theme.fonts.code};
+      // font-size: 0.9rem;
+
+      // uncomment below to create per language syntax highlight
       // &.language-js {
       & span {
         &.hljs-keyword {
@@ -54,10 +57,6 @@ const StyledContent = styled.div`
       }
       // }
     }
-  }
-
-  pre::-webkit-scrollbar-thumb {
-    background-color: red;
   }
 
   & blockquote {

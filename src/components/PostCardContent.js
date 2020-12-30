@@ -9,7 +9,7 @@ const StyledPostListItem = styled.li`
   background-color: #ebdbb2;
   padding: ${({ theme }) => theme.spacings.small};
   box-shadow: ${props => props.theme.shadows.shadow2};
-  max-height: 15rem;
+  min-height: 13rem;
 
   display: flex;
   flex-direction: column;
@@ -35,6 +35,10 @@ const StyledPostListItem = styled.li`
       color: ${props => props.theme.colors.blue};
       text-decoration: underline;
     }
+  }
+
+  @media screen and (max-width: 1000px) {
+    min-height: 10rem;
   }
 `
 

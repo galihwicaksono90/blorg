@@ -7,9 +7,11 @@ const StyledSidebar = styled.div`
   width: 100%;
   display: none;
   position: absolute;
-  top: -150%;
-  z-index: -1;
+  z-index: 1;
+  top: -29%;
+
   background-color: ${props => props.theme.colors.light.background};
+  ${props => console.log(props)};
   @media screen and (max-width: 720px) {
     display: flex;
     flex-direction: column;
@@ -31,9 +33,9 @@ const StyledSidebar = styled.div`
 `
 const SidebarItem = ({ children, to, className }) => {
   return (
-    <div>
+    <div className={className}>
       <Link to={to}>
-        <h3 className={className}>{children}</h3>
+        <h3>{children}</h3>
       </Link>
     </div>
   )
@@ -42,7 +44,10 @@ const SidebarItem = ({ children, to, className }) => {
 const Sidebar = ({ currentPage = "", sidebar }) => {
   return (
     <StyledSidebar
-      style={{ transform: `translateY(${sidebar ? "110%" : "0"})` }}
+      style={{
+        transform: `translateY(${sidebar ? "139%" : "0"})`,
+      }}
+      sidebar={sidebar}
     >
       <SidebarItem to="/" className={currentPage === "index" ? "active" : ""}>
         Home

@@ -5,7 +5,7 @@ import Layout from "../components/Layout.js"
 import Header from "../components/Header"
 import PageTitle from "../components/PageTitle"
 
-const Home = ({ data }) => {
+const Home = () => {
   return (
     <>
       <Header currentPage="index" />

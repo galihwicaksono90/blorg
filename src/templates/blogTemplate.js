@@ -5,6 +5,7 @@ import Header from "../components/Header"
 import Content from "../components/Content"
 import PostLayout from "../components/PostLayout"
 import PostTitle from "../components/PostTitle"
+import Footer from "../components/Footer"
 // import HeaderImage from "../components/HeaderImage"
 
 const BlogTemplate = ({ data }) => {
@@ -14,7 +15,6 @@ const BlogTemplate = ({ data }) => {
   return (
     <>
       <Header currentPage={"blog"} />
-
       <Layout>
         <PostLayout>
           <PostTitle
@@ -25,6 +25,7 @@ const BlogTemplate = ({ data }) => {
           />
           <Content content={html} />
         </PostLayout>
+        <Footer />
       </Layout>
     </>
   )

@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { Link } from "gatsby"
-import { GiHamburgerMenu } from "react-icons/gi"
-import { GrClose } from "react-icons/gr"
+
+import NavbarItem from "./NavbarItem"
+import Burger from "./Burger"
 
 const StyledNavbar = styled.ul`
   display: flex;
@@ -27,35 +27,6 @@ const StyledNavbar = styled.ul`
     }
   }
 `
-
-const StyledNavbarItem = styled.li`
-  list-style: none;
-  margin-right: ${props => props.theme.spacings.small};
-  & h3 {
-    color: ${props => props.theme.colors.light.foreground};
-    &.active {
-      color: ${props => props.theme.colors.magenta};
-    }
-  }
-`
-
-const Burger = ({ sidebarHandler, sidebar }) => {
-  return (
-    <button className="button" onClick={() => sidebarHandler()}>
-      <h2>{sidebar ? <GrClose /> : <GiHamburgerMenu />}</h2>
-    </button>
-  )
-}
-
-const NavbarItem = ({ children, to, className }) => {
-  return (
-    <StyledNavbarItem>
-      <Link to={to}>
-        <h3 className={className}>{children}</h3>
-      </Link>
-    </StyledNavbarItem>
-  )
-}
 
 const Navbar = ({ currentPage, sidebarHandler, sidebar }) => {
   return (

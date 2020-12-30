@@ -8,7 +8,8 @@ const StyledPostListItem = styled.li`
   list-style: none;
   background-color: #f2f2f2;
   padding: ${({ theme }) => theme.spacings.small};
-  // box-shadow: ${props => props.theme.shadows.shadow1};
+  box-shadow: ${props => props.theme.shadows.shadow2};
+  max-height: 15rem;
 
   display: flex;
   flex-direction: column;

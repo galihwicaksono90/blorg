@@ -4,7 +4,6 @@ import PostTitleDescription from "./PostTitleDescription"
 
 const StyledPostTitle = styled.header`
   width: 100%;
-  height: 100%;
   margin: ${props => props.theme.spacings.medium} 0
     ${props => props.theme.spacings.medium} 0;
 
@@ -14,6 +13,17 @@ const StyledPostTitle = styled.header`
     font-family: ${props => props.theme.fonts.sans};
     color: ${props => props.theme.colors.blue};
     font-size: 3rem;
+  }
+
+  @media screen and (max-width: 1000px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+  @media screen and (max-width: 720px) {
+    h1 {
+      font-size: 2rem;
+    }
   }
 `
 

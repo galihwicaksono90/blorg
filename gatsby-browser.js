@@ -13,9 +13,12 @@ export const wrapRootElement = ({ element }) => {
             margin: 0;
           }
           html,
-          body {
+          body,
+          #___gatsby,
+          #gatsby-focus-wrapper {
             font-family: "Jost*";
             font-size: 16px;
+            height: 100%;
           }
         `}
       />

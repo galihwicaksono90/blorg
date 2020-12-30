@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
+
 import Navbar from "./Navbar"
 import Sidebar from "./Sidebar"
 
@@ -8,7 +9,7 @@ const MainHeader = styled.header`
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 10;
 `
 const StyledHeader = styled.div`
   background-color: ${props => props.theme.colors.dark.foreground};
@@ -17,12 +18,11 @@ const StyledHeader = styled.div`
   }
 
   width: 100%;
-  height: auto;
-  padding: ${props => props.theme.spacings.small}
-    ${props => props.theme.spacings.medium};
+  height: 70px;
+  padding: 0 ${props => props.theme.spacings.medium};
 
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 
   border-bottom: solid 2px black;
@@ -45,20 +45,23 @@ const Header = ({ currentPage = "" }) => {
       }
     }
   `)
+
   return (
-    <MainHeader>
-      <StyledHeader currentPage={currentPage}>
-        <Navbar
-          currentPage={currentPage}
-          sidebarHandler={() => setSidebar(!sidebar)}
-          sidebar={sidebar}
-        />
-        <Link to="/">
-          <h1>{data.site.siteMetadata.title}</h1>
-        </Link>
-      </StyledHeader>
-      <Sidebar sidebar={sidebar} currentPage={currentPage} />
-    </MainHeader>
+    <>
+      <MainHeader>
+        <StyledHeader currentPage={currentPage}>
+          <Navbar
+            currentPage={currentPage}
+            sidebarHandler={() => setSidebar(!sidebar)}
+            sidebar={sidebar}
+          />
+          <Link to="/">
+            <h1>{data.site.siteMetadata.title}</h1>
+          </Link>
+        </StyledHeader>
+      </MainHeader>
+      <Sidebar currentPage={currentPage} sidebar={sidebar} />
+    </>
   )
 }
 

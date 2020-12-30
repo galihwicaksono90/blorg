@@ -11,7 +11,8 @@ const StyledTitleDescription = styled.li`
   align-items: center;
   justify-content: flex-start;
   margin-right: ${props => props.theme.spacings.small};
-  & h4 {
+  & p {
+    font-size: 0.9rem;
     margin-left: ${props => props.theme.spacings.xxSmall};
   }
 `
@@ -20,13 +21,13 @@ const TitleDescription = ({ date = "n/a", timeToRead = "n/a" }) => {
     <TitleDescriptions>
       <StyledTitleDescription>
         <MdDateRange />
-        <h4>{date}</h4>
+        <p>{date}</p>
       </StyledTitleDescription>
       <StyledTitleDescription>
         <MdQueryBuilder />
-        <h4>
+        <p>
           {timeToRead} {timeToRead === 1 ? "Minute Read" : "Minutes Read"}
-        </h4>
+        </p>
       </StyledTitleDescription>
     </TitleDescriptions>
   )

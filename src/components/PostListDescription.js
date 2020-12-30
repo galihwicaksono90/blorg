@@ -14,6 +14,7 @@ const StyledPostListDescription = styled.div`
   margin-right: ${props => props.theme.spacings.small};
   & p {
     margin-left: ${props => props.theme.spacings.xxSmall};
+    font-size: 0.9rem;
   }
 `
 

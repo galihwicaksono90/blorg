@@ -2,32 +2,39 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Header from "../components/Header"
-import Content from "../components/Content"
-import PostLayout from "../components/PostLayout"
 import PostTitle from "../components/PostTitle"
+import HeaderImage from "../components/HeaderImage"
+import Content from "../components/Content"
 import Footer from "../components/Footer"
-// import HeaderImage from "../components/HeaderImage"
 
 const BlogTemplate = ({ data }) => {
-  const { title, date, tags, image__https } = data.orgContent.metadata
+  const {
+    title,
+    date,
+    tags,
+    image__https,
+    description,
+  } = data.orgContent.metadata
   const { html, timeToRead } = data.orgContent
-  console.log(image__https)
   return (
-    <>
+    <article>
       <Header currentPage={"blog"} />
       <Layout>
-        <PostLayout>
+        <article>
           <PostTitle
             title={title}
             date={date}
             timeToRead={timeToRead}
             tags={tags}
           />
+          {image__https && (
+            <HeaderImage image={image__https} description={description} />
+          )}
           <Content content={html} />
-        </PostLayout>
+        </article>
         <Footer />
       </Layout>
-    </>
+    </article>
   )
 }
 
@@ -41,6 +48,7 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM YYYY")
         tags
         image__https
+        description
       }
     }
   }

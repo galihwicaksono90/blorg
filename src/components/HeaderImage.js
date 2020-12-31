@@ -1,21 +1,22 @@
 import React from "react"
-import styled from "@emotion/styled"
 
-const StyledHeaderImage = styled.div`
-  height: 430px;
-  max-width: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-const HeaderImage = ({ image }) => {
-  console.log(image)
+const HeaderImage = ({ image, description = "" }) => {
   return (
-    <StyledHeaderImage>
-      <img src={image} alt="" />
-    </StyledHeaderImage>
+    <figure>
+      <img
+        src={image}
+        alt=""
+        loading="lazy"
+        style={{
+          objectFit: "cover",
+          minHeight: "100%",
+          width: "100%",
+          objectPosition: "center center",
+          marginBottom: "1rem",
+        }}
+        rel={description}
+      />
+    </figure>
   )
 }
 

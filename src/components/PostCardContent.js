@@ -10,6 +10,7 @@ const StyledPostListItem = styled.li`
   padding: ${({ theme }) => theme.spacings.small};
   box-shadow: ${props => props.theme.shadows.shadow2};
   min-height: 13rem;
+  border: 2px solid #282828;
 
   display: flex;
   flex-direction: column;
@@ -37,7 +38,7 @@ const StyledPostListItem = styled.li`
     }
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 800px) {
     min-height: 10rem;
   }
 `

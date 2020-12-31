@@ -4,12 +4,13 @@ import styled from "@emotion/styled"
 const StyledFooter = styled.footer`
   margin-top: auto;
   width: 100%;
-  padding: 4rem;
-  height: 5rem;
+  padding: 2rem 0;
+  // height: 5rem;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: yellow;
 `
 
 const Footer = () => {

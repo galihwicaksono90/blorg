@@ -3,21 +3,24 @@ import styled from "@emotion/styled"
 import { Link } from "gatsby"
 
 const StyledSidebar = styled.div`
-  height: auto;
-  width: 100%;
   display: none;
+  width: 100%;
   position: absolute;
-  z-index: 1;
-  top: -29%;
+  z-index: -1;
+  top: 0;
+  transform: translateY(
+    ${props => (props.sidebar ? "70px" : "calc(-100%  + 72px)")}
+  );
 
-  // background-color: ${props => props.theme.colors.light.background};
-  background-color: #ebdbb2;
-  ${props => console.log(props)};
+  background-color: ${props => props.theme.colors.brwhite};
+  border-bottom: 2px solid #282828;
+
   @media screen and (max-width: 720px) {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     transition: transform 300ms ease-in-out;
+    box-shadow: ${props => props.theme.shadows.shadow2};
     & div {
       margin: ${props => props.theme.spacings.small} auto;
     }
@@ -47,12 +50,7 @@ const SidebarItem = ({ children, to, className }) => {
 
 const Sidebar = ({ currentPage = "", sidebar }) => {
   return (
-    <StyledSidebar
-      style={{
-        transform: `translateY(${sidebar ? "150%" : "0"})`,
-      }}
-      sidebar={sidebar}
-    >
+    <StyledSidebar sidebar={sidebar}>
       <SidebarItem to="/" className={currentPage === "index" ? "active" : ""}>
         Home
       </SidebarItem>

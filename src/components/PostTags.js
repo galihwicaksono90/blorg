@@ -24,7 +24,7 @@ const PostTags = ({ tags = [] }) => {
         <StyledTags>
           {tags.map((tag, index) => (
             <StyledTag key={index}>
-              <p>{tag}</p>
+              <p># {tag}</p>
             </StyledTag>
           ))}
         </StyledTags>

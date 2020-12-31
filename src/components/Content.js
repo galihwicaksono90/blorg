@@ -13,14 +13,14 @@ const StyledContent = styled.div`
   }
 
   & figure {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: ${props => props.theme.spacings.small};
-    & figcaption,
-    img {
-      margin-bottom: 0;
+    & img {
+      object-fit: cover;
+      object-position: center center;
+      max-width: 100%;
+      margin: 0;
+    }
+    & figcaption {
+      text-align: center;
     }
   }
 

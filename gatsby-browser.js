@@ -26,8 +26,3 @@ export const wrapRootElement = ({ element }) => {
     </ThemeProvider>
   )
 }
-
-// html,
-// body {
-//   font-family: ${props => props.theme.fonts.main};
-// }

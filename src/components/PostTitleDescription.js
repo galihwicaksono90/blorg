@@ -10,7 +10,8 @@ const StyledTitleDescription = styled.li`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-right: ${props => props.theme.spacings.small};
+  margin: 0 ${props => props.theme.spacings.small}
+    ${props => props.theme.spacings.xSmall} 0;
   & p {
     font-size: 0.9rem;
     margin-left: ${props => props.theme.spacings.xxSmall};

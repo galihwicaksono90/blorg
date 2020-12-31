@@ -13,14 +13,11 @@ export const wrapRootElement = ({ element }) => {
             margin: 0;
           }
           html,
-          body {
+          body,
+          #___gatsby,
+          #gatsby-focus-wrapper {
             font-family: "Jost*";
             font-size: 16px;
-          }
-          #___gatsby {
-            height: 100%;
-          }
-          #gatsby-focus-wrapper {
             height: 100%;
           }
         `}
@@ -29,8 +26,3 @@ export const wrapRootElement = ({ element }) => {
     </ThemeProvider>
   )
 }
-
-// html,
-// body {
-//   font-family: ${props => props.theme.fonts.main};
-// }

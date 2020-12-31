@@ -10,6 +10,7 @@ const About = () => {
       <Header currentPage={"about"} />
       <Layout>
         <PageTitle>About</PageTitle>
+        <p>asdf</p>
         <Footer />
       </Layout>
     </>

@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
+import GlobalContext from "../store/GlobalContext"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 
@@ -11,23 +12,24 @@ const MainHeader = styled.header`
   left: 0;
   z-index: 10;
   width: 100%;
+
+  border-bottom: solid 2px
+    ${props => props.theme.colors[props.themeColor].foreground};
+  box-shadow: ${props => props.theme.shadows.shadow2};
 `
 const StyledHeader = styled.div`
   height: 72px;
   padding: 0 ${props => props.theme.spacings.medium};
 
+  background-color: ${props => props.theme.colors[props.themeColor].white};
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  border-bottom: solid 2px ${props => props.theme.colors.light.foreground};
-  color: ${props => props.theme.colors.light.background};
-  background-color: ${props => props.theme.colors.brwhite};
-  box-shadow: ${props => props.theme.shadows.shadow2};
-
   & h1 {
     font-size: 2rem;
-    color: ${props => props.theme.colors.blue};
+    color: ${props => props.theme.colors[props.themeColor].blue};
   }
 
   & a {
@@ -44,6 +46,8 @@ const StyledHeader = styled.div`
 
 const Header = ({ currentPage = "" }) => {
   const [sidebar, setSidebar] = useState(false)
+  const { globalState, globalDispatch } = useContext(GlobalContext)
+  const { themeColor } = globalState
 
   const data = useStaticQuery(graphql`
     query headerQuery {
@@ -56,8 +60,8 @@ const Header = ({ currentPage = "" }) => {
   `)
 
   return (
-    <MainHeader>
-      <StyledHeader currentPage={currentPage}>
+    <MainHeader themeColor={themeColor}>
+      <StyledHeader currentPage={currentPage} themeColor={themeColor}>
         <Navbar
           currentPage={currentPage}
           sidebarHandler={() => setSidebar(!sidebar)}

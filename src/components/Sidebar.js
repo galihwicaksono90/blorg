@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext } from "react"
+import GlobalContext from "../store/GlobalContext"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
 
@@ -12,8 +13,9 @@ const StyledSidebar = styled.div`
     ${props => (props.sidebar ? "70px" : "calc(-100%  + 72px)")}
   );
 
-  background-color: ${props => props.theme.colors.brwhite};
-  border-bottom: 2px solid #282828;
+  background-color: ${props => props.theme.colors[props.themeColor].white};
+  border-bottom: 2px solid
+    ${props => props.theme.colors[props.themeColor].foreground};
 
   @media screen and (max-width: 720px) {
     display: flex;
@@ -29,9 +31,9 @@ const StyledSidebar = styled.div`
     text-decoration: none;
   }
   & h3 {
-    color: ${props => props.theme.colors.light.foreground};
+    color: ${props => props.theme.colors[props.themeColor].foreground};
     &.active {
-      color: ${props => props.theme.colors.magenta};
+      color: ${props => props.theme.colors[props.themeColor].magenta};
     }
     &:hover {
       text-decoration: underline;
@@ -49,8 +51,10 @@ const SidebarItem = ({ children, to, className }) => {
 }
 
 const Sidebar = ({ currentPage = "", sidebar }) => {
+  const { globalState } = useContext(GlobalContext)
+  const { themeColor } = globalState
   return (
-    <StyledSidebar sidebar={sidebar}>
+    <StyledSidebar sidebar={sidebar} themeColor={themeColor}>
       <SidebarItem to="/" className={currentPage === "index" ? "active" : ""}>
         Home
       </SidebarItem>

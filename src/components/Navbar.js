@@ -1,23 +1,15 @@
-import React from "react"
+import React, { useContext } from "react"
+import GlobalContext from "../store/GlobalContext"
 import styled from "@emotion/styled"
 
 import NavbarItem from "./NavbarItem"
+import ThemeSwitcher from "./ThemeSwitcher"
 import Burger from "./Burger"
 
 const StyledNavbar = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
-  & button {
-    outline: none;
-    display: none;
-    background: none;
-    border: none;
-    &:hover {
-      cursor: pointer;
-      color: ${props => props.theme.colors.magenta};
-    }
-  }
 
   @media screen and (max-width: 720px) {
     & li {
@@ -30,8 +22,10 @@ const StyledNavbar = styled.ul`
 `
 
 const Navbar = ({ currentPage, sidebarHandler, sidebar }) => {
+  const { globalState } = useContext(GlobalContext)
+  const { themeColor } = globalState
   return (
-    <StyledNavbar>
+    <StyledNavbar themeColor={themeColor}>
       <NavbarItem to="/" className={currentPage === "index" ? "active" : ""}>
         Home
       </NavbarItem>
@@ -45,6 +39,7 @@ const Navbar = ({ currentPage, sidebarHandler, sidebar }) => {
         About
       </NavbarItem>
       <Burger sidebarHandler={sidebarHandler} sidebar={sidebar} />
+      <ThemeSwitcher />
     </StyledNavbar>
   )
 }

@@ -11,7 +11,7 @@ const brred = "#fb4934"
 // const brgreen = "#b8bb26"
 // const bryellow = "#fabd2f"
 const brblue = "#83a598"
-// const brmagenta = "#d3869b"
+const brmagenta = "#d3869b"
 // const brcyan = "#8ec07c"
 const brwhite = "#ebdbb2"
 const background = "#282828"
@@ -35,10 +35,16 @@ const theme = {
     light: {
       background: foreground,
       foreground: background,
+      white: brwhite,
+      blue: blue,
+      magenta: magenta,
     },
     dark: {
       background: background,
-      foreground: foreground,
+      foreground: brwhite,
+      white: background,
+      blue: brblue,
+      magenta: brmagenta,
     },
     red: red,
     green: green,

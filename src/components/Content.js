@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext } from "react"
+import GlobalContext from "../store/GlobalContext"
 import styled from "@emotion/styled"
 
 const StyledContent = styled.div`
@@ -6,7 +7,7 @@ const StyledContent = styled.div`
     margin-bottom: ${props => props.theme.spacings.small};
   }
   & h2 {
-    color: ${props => props.theme.colors.light.foreground};
+    color: ${props => props.theme.colors[props.themeColor].foreground};
   }
   & p {
     text-indent: ${props => props.theme.spacings.medium};
@@ -80,8 +81,10 @@ const StyledContent = styled.div`
 `
 
 const Content = ({ content = "<h1>No content yet</h1>" }) => {
+  const { globalState } = useContext(GlobalContext)
+  const { themeColor } = globalState
   return (
-    <StyledContent>
+    <StyledContent themeColor={themeColor}>
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </StyledContent>
   )

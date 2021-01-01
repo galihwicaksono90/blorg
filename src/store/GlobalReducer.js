@@ -1,7 +1,8 @@
 const GlobalReducer = (state, { type, payload }) => {
   switch (type) {
     case "changeTheme":
-      return { ...state, isDark: !state.isDark }
+      console.log({ type, payload })
+      return { ...state, themeColor: payload }
     default:
       return state
   }

@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext } from "react"
+import GlobalContext from "../store/GlobalContext"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
 
@@ -7,10 +8,10 @@ const StyledNavbarItem = styled.li`
   margin-right: ${props => props.theme.spacings.small};
   outline: none;
   & h3 {
-    color: ${props => props.theme.colors.light.foreground};
+    color: ${props => props.theme.colors[props.themeColor].foreground};
     outline: none;
     &.active {
-      color: ${props => props.theme.colors.magenta};
+      color: ${props => props.theme.colors[props.themeColor].magenta};
     }
     &:hover {
       text-decoration: underline;
@@ -19,8 +20,10 @@ const StyledNavbarItem = styled.li`
 `
 
 const NavbarItem = ({ children, to, className }) => {
+  const { globalState, globalDispatch } = useContext(GlobalContext)
+  const { themeColor } = globalState
   return (
-    <StyledNavbarItem>
+    <StyledNavbarItem themeColor={themeColor}>
       <Link to={to}>
         <h3 className={className}>{children}</h3>
       </Link>

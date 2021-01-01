@@ -4,7 +4,7 @@ import { GrClose } from "react-icons/gr"
 
 const Burger = ({ sidebarHandler, sidebar }) => {
   return (
-    <button className="button" onClick={() => sidebarHandler()}>
+    <button onClick={() => sidebarHandler()}>
       <h2>{sidebar ? <GrClose /> : <GiHamburgerMenu />}</h2>
     </button>
   )

@@ -9,12 +9,8 @@
 * PUBLISHED Create a blog using Gatsby and Org-mode :emacs:web:orgMode:
 CLOSED: [2020-12-24 Thu 16:46]
 :PROPERTIES:
-:IMAGE: https://placeimg.com/1366/720/tech
+:IMAGE: https://pbs.twimg.com/media/ElMfyp0WMAI7DDn?format=jpg&name=4096x4096
 :CATEGORY: Lesson
-:DESCRIPTION: Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl.
-
-
- 
 :END:
 
 ** First Things First... What in the hell is /org-mode/?
@@ -22,6 +18,7 @@ This is the ~content of this~ post.Nullam eu ante vel est convallis dignissim.  
 
 [[file:img/doom-emacs.png][Doom Emacs]]
 
+[[youtube:https://www.youtube.com/watch?v=jb8WTKUBTw4https://www.youtube.com/watch?v=jb8WTKUBTw4][pong]]
 Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.
 
 #+begin_src js 
@@ -68,14 +65,14 @@ CLOSED: [2020-12-26 Sat 07:26]
 :PROPERTIES:
 :CATEGORY: Lesson
 :DESCRIPTION: The things you need to know to use gatsby-transformer-orga plugin.
-:IMAGE: https://picsum.photos/1366/720
+:IMAGE: ./img/doom-emacs.png
 :END:
 
 ** Emphasis (can be in _headline_ too)
 
 [[https://github.com/orgapp/orgajs][Here's]] to the *crazy* ones, the /misfits/, the _rebels_, the ~troublemakers~, the round pegs in the +round+ square holes... 
 
-    
+[[[[./img/doom-emacs.png]]][asdfasdf]]
 ** Horizontal Rule
 
 ------

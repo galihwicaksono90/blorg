@@ -5,8 +5,10 @@ import { Link } from "gatsby"
 const StyledNavbarItem = styled.li`
   list-style: none;
   margin-right: ${props => props.theme.spacings.small};
+  outline: none;
   & h3 {
     color: ${props => props.theme.colors.light.foreground};
+    outline: none;
     &.active {
       color: ${props => props.theme.colors.magenta};
     }

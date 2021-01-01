@@ -16,6 +16,7 @@ const BlogTemplate = ({ data }) => {
     description,
   } = data.orgContent.metadata
   const { html, timeToRead } = data.orgContent
+  console.log({ image__https })
   return (
     <article>
       <Header currentPage={"blog"} />

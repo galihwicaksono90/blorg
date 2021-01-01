@@ -1,11 +1,17 @@
 import React from "react"
+import styled from "@emotion/styled"
+
+const StyledFigure = styled.figure`
+  max-height: auto;
+  height: auto;
+`
 
 const HeaderImage = ({ image, description = "" }) => {
   return (
-    <figure>
+    <StyledFigure>
       <img
         src={image}
-        alt=""
+        alt={description}
         loading="lazy"
         style={{
           objectFit: "cover",
@@ -16,7 +22,7 @@ const HeaderImage = ({ image, description = "" }) => {
         }}
         rel={description}
       />
-    </figure>
+    </StyledFigure>
   )
 }
 

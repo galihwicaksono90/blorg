@@ -8,11 +8,11 @@ const StyledNavbar = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
-  & .button {
+  & button {
+    outline: none;
     display: none;
     background: none;
     border: none;
-    outline: none;
     &:hover {
       cursor: pointer;
       color: ${props => props.theme.colors.magenta};
@@ -23,7 +23,7 @@ const StyledNavbar = styled.ul`
     & li {
       display: none;
     }
-    & .button {
+    & button {
       display: block;
     }
   }

@@ -10,10 +10,10 @@ const MainHeader = styled.header`
   top: 0;
   left: 0;
   z-index: 10;
-  width: 100vw;
+  width: 100%;
 `
 const StyledHeader = styled.div`
-  height: 70px;
+  height: 72px;
   padding: 0 ${props => props.theme.spacings.medium};
 
   display: flex;
@@ -38,6 +38,7 @@ const StyledHeader = styled.div`
     box-shadow: none;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-bottom: none;
+    height: 70px;
   }
 `
 

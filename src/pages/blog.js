@@ -11,7 +11,7 @@ import Footer from "../components/Footer"
 const Blog = ({ data }) => {
   const { edges } = data.allOrgContent
   return (
-    <>
+    <article>
       <Header currentPage={"blog"} />
       <Layout>
         <PageTitle>Latest Posts</PageTitle>
@@ -22,7 +22,7 @@ const Blog = ({ data }) => {
         </PostCard>
         <Footer />
       </Layout>
-    </>
+    </article>
   )
 }
 

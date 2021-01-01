@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext } from "react"
+import GlobalContext from "../store/GlobalContext"
 import styled from "@emotion/styled"
 import PostTitleDescription from "./PostTitleDescription"
 import PostTags from "../components/PostTags"
@@ -8,11 +9,11 @@ const StyledPostTitle = styled.header`
   margin: ${props => props.theme.spacings.small} 0
     ${props => props.theme.spacings.small} 0;
 
-  color: ${props => props.theme.colors.light.foreground};
+  // color: ${props => props.theme.colors.light.foreground};
 
   & h1 {
     font-family: ${props => props.theme.fonts.sans};
-    color: ${props => props.theme.colors.blue};
+    color: ${props => props.theme.colors[props.themeColor].blue};
     font-size: 3rem;
   }
 
@@ -29,8 +30,10 @@ const StyledPostTitle = styled.header`
 `
 
 const PostTitle = ({ date, timeToRead, tags, title = "Untilted" }) => {
+  const { globalState } = useContext(GlobalContext)
+  const { themeColor } = globalState
   return (
-    <StyledPostTitle>
+    <StyledPostTitle themeColor={themeColor}>
       <h1>{title}</h1>
       <PostTitleDescription date={date} timeToRead={timeToRead} />
       <PostTags tags={tags} />

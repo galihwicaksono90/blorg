@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext } from "react"
+import GlobalContext from "../store/GlobalContext"
 import styled from "@emotion/styled"
 
 const StyledTags = styled.div`
@@ -10,20 +11,25 @@ const StyledTags = styled.div`
 `
 const StyledTag = styled.div`
   margin-left: ${props => props.theme.spacings.xSmall};
-  background-color: ${props => props.theme.colors.magenta};
-  color: ${props => props.theme.colors.light.background};
+  background-color: ${props => props.theme.colors[props.themeColor].magenta};
+  color: ${props =>
+    props.theme === "light"
+      ? props.theme.colors[props.themeColor].background
+      : props.theme.colors[props.themeColor].white};
   padding: ${props => props.theme.spacings.xxSmall}
     ${props => props.theme.spacings.xxSmall};
   font-size: 0.8rem;
 `
 
 const PostTags = ({ tags = [] }) => {
+  const { globalState, globalDispatch } = useContext(GlobalContext)
+  const { themeColor } = globalState
   return (
     <>
       {tags && (
         <StyledTags>
           {tags.map((tag, index) => (
-            <StyledTag key={index}>
+            <StyledTag key={index} themeColor={themeColor}>
               <p># {tag}</p>
             </StyledTag>
           ))}

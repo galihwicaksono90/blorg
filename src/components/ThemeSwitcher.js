@@ -7,7 +7,6 @@ import {
 } from "react-icons/hi"
 
 const StyledThemeSwitcher = styled.button`
-  background-color: ${props => props.theme.colors[props.themeColor].background};
   color: ${props => props.theme.colors[props.themeColor].foreground};
 
   margin-left: ${props => props.theme.spacings.small};
@@ -15,14 +14,16 @@ const StyledThemeSwitcher = styled.button`
   background: none;
   border: none;
   outline: none;
+
+  transform: scale(2);
   display: flex;
   justify-content: center;
   align-items: center;
 
   & svg {
-    transform: scale(2);
     &:hover {
       cursor: pointer;
+      color: ${props => props.theme.colors[props.themeColor].yellow};
     }
   }
 

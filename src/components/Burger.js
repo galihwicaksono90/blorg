@@ -5,14 +5,23 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { FaRegWindowClose } from "react-icons/fa"
 
 const StyledBurger = styled.button`
-  outline: none;
   display: none;
+  outline: none;
   background: none;
   border: none;
   color: ${props => props.theme.colors[props.themeColor].foreground};
-  &:hover {
-    cursor: pointer;
-    color: ${props => props.theme.colors[props.themeColor].magenta};
+
+  transform: scale(2);
+
+  & svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+      color: ${props => props.theme.colors[props.themeColor].magenta};
+    }
   }
 `
 const Burger = ({ sidebarHandler, sidebar }) => {
@@ -20,7 +29,7 @@ const Burger = ({ sidebarHandler, sidebar }) => {
   const { themeColor } = globalState
   return (
     <StyledBurger onClick={() => sidebarHandler()} themeColor={themeColor}>
-      <h2>{sidebar ? <FaRegWindowClose /> : <GiHamburgerMenu />}</h2>
+      {sidebar ? <FaRegWindowClose /> : <GiHamburgerMenu />}
     </StyledBurger>
   )
 }

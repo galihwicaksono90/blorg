@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useContext } from "react"
+import GlobalContext from "../store/GlobalContext"
 import styled from "@emotion/styled"
 import { MdDateRange, MdQueryBuilder } from "react-icons/md"
 
@@ -6,7 +7,10 @@ const TitleDescriptions = styled.ul`
   display: flex;
 `
 const StyledTitleDescription = styled.li`
-  color: ${props => props.theme.colors.brblue};
+  color: ${props =>
+    props.themeColor === "light"
+      ? props.theme.colors[props.themeColor].blue
+      : props.theme.colors[props.themeColor].foreground};
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -18,13 +22,15 @@ const StyledTitleDescription = styled.li`
   }
 `
 const TitleDescription = ({ date = "n/a", timeToRead = "n/a" }) => {
+  const { globalState } = useContext(GlobalContext)
+  const { themeColor } = globalState
   return (
     <TitleDescriptions>
-      <StyledTitleDescription>
+      <StyledTitleDescription themeColor={themeColor}>
         <MdDateRange />
         <p>{date}</p>
       </StyledTitleDescription>
-      <StyledTitleDescription>
+      <StyledTitleDescription themeColor={themeColor}>
         <MdQueryBuilder />
         <p>
           {timeToRead} {timeToRead === 1 ? "minute read" : "minutes read"}

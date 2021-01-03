@@ -46,7 +46,7 @@ const StyledHeader = styled.div`
 
 const Header = ({ currentPage = "" }) => {
   const [sidebar, setSidebar] = useState(false)
-  const { globalState, globalDispatch } = useContext(GlobalContext)
+  const { globalState } = useContext(GlobalContext)
   const { themeColor } = globalState
 
   const data = useStaticQuery(graphql`

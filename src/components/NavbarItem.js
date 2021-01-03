@@ -20,7 +20,7 @@ const StyledNavbarItem = styled.li`
 `
 
 const NavbarItem = ({ children, to, className }) => {
-  const { globalState, globalDispatch } = useContext(GlobalContext)
+  const { globalState } = useContext(GlobalContext)
   const { themeColor } = globalState
   return (
     <StyledNavbarItem themeColor={themeColor}>

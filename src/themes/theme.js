@@ -1,6 +1,6 @@
 // const black = "#282828"
-// const red = "#cc241d"
-// const green = "#98971a"
+const red = "#cc241d"
+const green = "#98971a"
 const yellow = "#d79921"
 const blue = "#458588"
 const magenta = "#b16286"
@@ -48,6 +48,9 @@ const theme = {
       magenta: brmagenta,
       yellow: bryellow,
     },
+    yellow: yellow,
+    green: green,
+    red: red,
   },
   shadows: {
     shadow1:

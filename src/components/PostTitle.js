@@ -9,17 +9,15 @@ const StyledPostTitle = styled.header`
   margin: ${props => props.theme.spacings.small} 0
     ${props => props.theme.spacings.small} 0;
 
-  // color: ${props => props.theme.colors.light.foreground};
-
   & h1 {
     font-family: ${props => props.theme.fonts.sans};
     color: ${props => props.theme.colors[props.themeColor].blue};
-    font-size: 3rem;
+    font-size: 2.7rem;
   }
 
   @media screen and (max-width: 800px) {
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
     }
   }
   @media screen and (max-width: 720px) {

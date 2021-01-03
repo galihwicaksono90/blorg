@@ -22,7 +22,7 @@ const StyledTag = styled.div`
 `
 
 const PostTags = ({ tags = [] }) => {
-  const { globalState, globalDispatch } = useContext(GlobalContext)
+  const { globalState } = useContext(GlobalContext)
   const { themeColor } = globalState
   return (
     <>

@@ -18,9 +18,9 @@ export const wrapRootElement = ({ element }) => {
             body,
             #___gatsby,
             #gatsby-focus-wrapper {
-              font-family: "Jost*";
               font-size: 16px;
               height: 100%;
+              font-family: "Jost*", sans-serif;
             }
           `}
         />

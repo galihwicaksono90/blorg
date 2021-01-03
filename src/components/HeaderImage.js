@@ -2,17 +2,19 @@ import React from "react"
 import styled from "@emotion/styled"
 
 const StyledFigure = styled.figure`
-  max-height: auto;
+  max-height: 600px;
   height: auto;
 `
 
-const HeaderImage = ({ image, description = "" }) => {
+const HeaderImage = ({ image, image__https, description = "" }) => {
+  console.log(image)
   return (
     <StyledFigure>
       <img
-        src={image}
+        src={require(`../posts/images/${image}`)}
         alt={description}
         loading="lazy"
+        /* height="450" */
         style={{
           objectFit: "cover",
           minHeight: "100%",

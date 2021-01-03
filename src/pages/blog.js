@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout.js"
+import Article from "../components/Article.js"
 import PostCard from "../components/PostCard"
 import PostCardContent from "../components/PostCardContent"
 import Header from "../components/Header"
@@ -11,9 +12,9 @@ import Footer from "../components/Footer"
 const Blog = ({ data }) => {
   const { edges } = data.allOrgContent
   return (
-    <article>
+    <Layout>
       <Header currentPage={"blog"} />
-      <Layout>
+      <Article>
         <PageTitle>Latest Posts</PageTitle>
         <PostCard>
           {edges.map(({ node }) => (
@@ -21,14 +22,14 @@ const Blog = ({ data }) => {
           ))}
         </PostCard>
         <Footer />
-      </Layout>
-    </article>
+      </Article>
+    </Layout>
   )
 }
 
 export const query = graphql`
   query blogQuery {
-    allOrgContent(sort: { fields: metadata___date, order: DESC }, limit: 5) {
+    allOrgContent(sort: { fields: metadata___date, order: DESC }) {
       edges {
         node {
           id

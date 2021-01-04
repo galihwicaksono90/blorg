@@ -7,7 +7,7 @@
 * PUBLISHED BIOS Flasing using arduino :arduino:
 CLOSED: [2021-01-01 Fri 22:25]
 :PROPERTIES:
-:IMAGE:         arduino.jpg
+:IMAGE:         ./images/arduino.jpg
 :DESCRIPTION:   Laptop stuck at boot.
 :AUTHOR:        Galih Wicaksono
 :END:
@@ -26,7 +26,7 @@ All things considered, i choose the last option because it won't break anything 
 * PUBLISHED Create a blog using Gatsby and Org-mode :emacs:web:orgMode:
 CLOSED: [2020-12-24 Thu 16:46]
 :PROPERTIES:
-:IMAGE: arduino.jpg
+:IMAGE: ./images/doom-emacs.png
 :CATEGORY: Lesson
 :END:
 
@@ -37,7 +37,7 @@ I found org-mode years ago, it is good. But it's trapped inside Emacs. I would l
 
 I watch football ... that's a lie. I play video games for fun. Sinking time in technologies that excite me.
 
-[[file:img/doom-emacs.png][Doom Emacs]]
+[[file:images/doom-emacs.png][Doom Emacs]]
 
 [[youtube:https://www.youtube.com/watch?v=jb8WTKUBTw4https://www.youtube.com/watch?v=jb8WTKUBTw4][pong]]
 Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.

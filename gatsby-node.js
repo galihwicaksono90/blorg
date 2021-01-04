@@ -1,8 +1,8 @@
 const path = require("path")
+const blogTemplate = require.resolve("./src/templates/blogTemplate.js")
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
-  const blogTemplate = require.resolve("./src/templates/blogTemplate.js")
 
   const result = await graphql(`
     query orgContentQuery {

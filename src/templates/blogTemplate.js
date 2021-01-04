@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+
 import Layout from "../components/Layout"
 import Article from "../components/Article"
 import Header from "../components/Header"
@@ -21,7 +22,12 @@ const BlogTemplate = ({ data }) => {
           timeToRead={timeToRead}
           tags={tags}
         />
-        {image && <HeaderImage image={image} description={description} />}
+        {image && (
+          <HeaderImage
+            image={image.childImageSharp.fluid}
+            description={description}
+          />
+        )}
         <Content content={html} />
         <Footer />
       </Article>
@@ -38,7 +44,17 @@ export const pageQuery = graphql`
         title
         date(formatString: "DD MMMM YYYY")
         tags
-        image
+        image {
+          childImageSharp {
+            fluid {
+              aspectRatio
+              base64
+              sizes
+              src
+              srcSet
+            }
+          }
+        }
         description
       }
     }
@@ -46,3 +62,6 @@ export const pageQuery = graphql`
 `
 
 export default BlogTemplate
+
+//
+//

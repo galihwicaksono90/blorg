@@ -46,5 +46,7 @@ module.exports = {
         //insert options here
       },
     },
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
   ],
 }

@@ -33,13 +33,13 @@ export const query = graphql`
       edges {
         node {
           id
-          slug
           timeToRead
           metadata {
             title
             description
             date(formatString: "DD MMMM YYYY")
             tags
+            export_file_name
           }
         }
       }

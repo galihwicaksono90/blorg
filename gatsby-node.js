@@ -10,7 +10,9 @@ exports.createPages = async ({ actions, graphql }) => {
         edges {
           node {
             id
-            slug
+            metadata {
+              export_file_name
+            }
           }
         }
       }
@@ -22,7 +24,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   result.data.allOrgContent.edges.forEach(({ node }) =>
     createPage({
-      path: `/blog${node.slug}`,
+      path: `/blog/${node.metadata.export_file_name}`,
       component: blogTemplate,
       context: {
         id: node.id,

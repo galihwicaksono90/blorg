@@ -9,6 +9,8 @@ const StyledNavbarItem = styled.li`
   outline: none;
   & h3 {
     color: ${props => props.theme.colors[props.themeColor].foreground};
+    font-family: ${props => props.theme.fonts.title};
+    font-weight: normal;
     outline: none;
     &.active {
       color: ${props => props.theme.colors[props.themeColor].magenta};

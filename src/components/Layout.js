@@ -11,6 +11,18 @@ const StyledLayout = styled.div`
   background-color: ${props => props.theme.colors[props.themeColor].background};
   color: ${props => props.theme.colors[props.themeColor].foreground};
 
+  h1 {
+    font-family: ${props => props.theme.fonts.title};
+    font-weight: normal;
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  a,
+  p {
+    font-family: ${props => props.theme.fonts.main};
+  }
   & a {
     text-decoration: none;
     color: ${props => props.theme.colors[props.themeColor].blue};

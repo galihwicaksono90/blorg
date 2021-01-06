@@ -8,6 +8,8 @@ const StyledContent = styled.div`
   }
   & h2 {
     color: ${props => props.theme.colors[props.themeColor].foreground};
+    font-family: ${props => props.theme.fonts.title};
+    font-weight: normal;
   }
   & p {
     text-indent: ${props => props.theme.spacings.medium};
@@ -32,8 +34,8 @@ const StyledContent = styled.div`
 
     & code {
       color: #ebdbb2;
-      // font-family: ${props => props.theme.fonts.code};
-      // font-size: 0.9rem;
+      font-family: ${props => props.theme.fonts.cod};
+      font-size: 0.9rem;
 
       // uncomment below to create per language syntax highlight
       // &.language-js {

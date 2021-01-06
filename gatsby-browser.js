@@ -20,7 +20,6 @@ export const wrapRootElement = ({ element }) => {
             #gatsby-focus-wrapper {
               font-size: 16px;
               height: 100%;
-              font-family: "Jost*", sans-serif;
             }
           `}
         />

@@ -10,21 +10,19 @@ module.exports = {
     title: `Goblorg`,
     author: `Galih Wicaksono`,
     description: `A self taught front-end developer documenting and sharing his learning process`,
-    // siteUrl: `https://ansonlowzf.com`,
-    social: [
-      {
-        name: `Twitter`,
-        url: `https://twitter.com/galihwicaksono`,
-      },
-      {
-        name: `Github`,
-        url: `https://github.com/gorillahobo`,
-      },
-      {
-        name: `Proudly hosted on Netlify`,
-        url: `https://www.galihwicaksono.com/`,
-      },
-    ],
+    // {
+    //   name: `Twitter`,
+    //   url: `https://twitter.com/galihwicaksono`,
+    // },
+    // {
+    //   name: `Github`,
+    //   url: `https://github.com/gorillahobo`,
+    // },
+    // {
+    //   name: `Proudly hosted on Netlify`,
+    //   url: `https://www.galihwicaksono.com/`,
+    // },
+    // ],
   },
   plugins: [
     {
@@ -48,5 +46,15 @@ module.exports = {
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-google-fonts-v2",
+      options: {
+        fonts: [
+          { family: "JetBrains Mono" },
+          { family: "Alfa Slab One" },
+          { family: "Open Sans" },
+        ],
+      },
+    },
   ],
 }

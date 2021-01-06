@@ -19,8 +19,9 @@ const foreground = "#FFFFFF"
 
 const theme = {
   fonts: {
-    main: `Jost*, sans-serif`,
-    code: `Cascadia Code, monospace`,
+    title: "Alfa Slab One, serif",
+    main: `Open Sans, sans-serif`,
+    code: `JetBrains Mono, monospace`,
   },
   spacings: {
     xxSmall: ".25rem",

@@ -6,8 +6,8 @@ const StyledPageTitle = styled.h1`
   text-align: left;
   margin: ${props => props.theme.spacings.small} auto;
   width: 100%;
-  border-bottom: 2px solid
-    ${props => props.theme.colors[props.themeColor].foreground};
+  border-bottom: 2px solid ${props => props.theme.colors[props.themeColor].blue};
+  color: ${props => props.theme.colors[props.themeColor].blue};
 `
 const PageTitle = ({ children }) => {
   const { globalState } = useContext(GlobalContext)

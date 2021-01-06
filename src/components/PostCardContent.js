@@ -13,6 +13,10 @@ const StyledPostListItem = styled.li`
   min-height: 13rem;
   border: 2px solid ${props => props.theme.colors[props.themeColor].foreground};
 
+  & h2 {
+    font-family: ${props => props.theme.fonts.title};
+    font-weight: normal;
+  }
   display: flex;
   flex-direction: column;
   & .desc {

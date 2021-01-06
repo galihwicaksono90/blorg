@@ -4,25 +4,6 @@
 #+STARTUP: fold
 
 
-* PUBLISHED BIOS Flasing using arduino :arduino:
-CLOSED: [2021-01-01 Fri 22:25]
-:PROPERTIES:
-:IMAGE:         ./images/arduino.jpg
-:DESCRIPTION:   Laptop stuck at boot.
-:AUTHOR:        Galih Wicaksono
-:END:
-
-So this is what i did. After resetting CMOS, and because of the laptop displayed something, i concluded that it was a BIOS initialization failure. I didn't know wether it was some corrupted data in the EEPROM or the EEPROM chip itself failed. The chip was a [[https://www.winbond.com/resource-files/w25q32bv_revi_100413_wo_automotive.pdf][WINBOND W25Q32BV]]. Then I listed some options that I could do:
-
-1. Go to a repair shop, be told that "ini harus ganti motherboardnya mas,"  and spend god knows how much money. Bunch of blood sucking leeches. 
-2. Buy a pre-flashed chip for Rp.85,000. Solder it myself and be done with it. This option includes the risk of buying a wrong one. 
-3. Buy an empty chip, a CH341a EEPROM programmer, flash the chip and solder it. The potiential cost was Rp.10.000 for the chip and Rp.40.000 for the flasher. 
-
-But after some further reading on the datasheet, another option came up:
-
-4. Assuming that the chip is fine, why don't I just make everything up myself? EEPROMs are not particularly complicated, I already had everything I needed: I had an arduino and I would have learn how SPI protocol works, how binary stored in memory, how hex data works and a bunch of other things. Best of all, I won't spend a dime. It was perfect. Or so i thought. 
-
-All things considered, i choose the last option because it won't break anything (sort of). And if this doesn't work, i could just do the other options.
 * PUBLISHED Create a blog using Gatsby and Org-mode :emacs:web:orgMode:
 CLOSED: [2020-12-24 Thu 16:46]
 :PROPERTIES:
@@ -42,7 +23,7 @@ I watch football ... that's a lie. I play video games for fun. Sinking time in t
 [[youtube:https://www.youtube.com/watch?v=jb8WTKUBTw4https://www.youtube.com/watch?v=jb8WTKUBTw4][pong]]
 Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.
 
-#+begin_src js 
+#+begin_src js
 const BlogTemplate = ({ data }) => {
   const { title, date, tags, image__https } = data.orgContent.metadata
   const { html, timeToRead } = data.orgContent
@@ -75,3 +56,28 @@ Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non orci comm
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl.
 
+* PUBLISHED BIOS Flasing using arduino :arduino:
+CLOSED: [2021-01-01 Fri 22:25]
+:PROPERTIES:
+:IMAGE:         ./images/arduino.jpg
+:DESCRIPTION:   Laptop stuck at boot.
+:AUTHOR:        Galih Wicaksono
+:END:
+
+So this is what i did. After resetting CMOS, and because of the laptop displayed something, i concluded that it was a BIOS initialization failure. I didn't know wether it was some corrupted data in the EEPROM or the EEPROM chip itself failed. The chip was a [[https://www.winbond.com/resource-files/w25q32bv_revi_100413_wo_automotive.pdf][WINBOND W25Q32BV]]. Then I listed some options that I could do:
+
+1. Go to a repair shop, be told that "ini harus ganti motherboardnya mas,"  and spend god knows how much money. Bunch of blood sucking leeches.
+2. Buy a pre-flashed chip for Rp.85,000. Solder it myself and be done with it. This option includes the risk of buying a wrong one.
+3. Buy an empty chip, a CH341a EEPROM programmer, flash the chip and solder it. The potiential cost was Rp.10.000 for the chip and Rp.40.000 for the flasher.
+
+But after some further reading on the datasheet, another option came up:
+
+4. Assuming that the chip is fine, why don't I just make everything up myself? EEPROMs are not particularly complicated, I already had everything I needed: I had an arduino and I would have learn how SPI protocol works, how binary stored in memory, how hex data works and a bunch of other things. Best of all, I won't spend a dime. It was perfect. Or so i thought.
+
+All things considered, i choose the last option because it won't break anything (sort of). And if this doesn't work, i could just do the other options.
+* PUBLISHED Test Post
+CLOSED: [2021-01-06 Wed 15:29]
+:PROPERTIES:
+:END:
+
+testingggg

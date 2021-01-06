@@ -11,7 +11,7 @@ const StyledTags = styled.div`
   flex-wrap: wrap;
 `
 const StyledTag = styled.div`
-  margin-left: ${props => props.theme.spacings.xSmall};
+  margin-left: ${props => props.theme.spacings.xxSmall};
   background-color: ${props => props.theme.colors[props.themeColor].magenta};
   color: ${props =>
     props.theme === "light"
@@ -19,7 +19,9 @@ const StyledTag = styled.div`
       : props.theme.colors[props.themeColor].white};
   padding: ${props => props.theme.spacings.xxSmall}
     ${props => props.theme.spacings.xxSmall};
+  padding: 0.1rem 0.2rem;
   font-size: 0.8rem;
+  font-weight: bold;
 `
 const StyledTagIcon = styled.div`
   display: flex;
@@ -38,7 +40,7 @@ const PostTags = ({ tags = [] }) => {
   const { themeColor } = globalState
   return (
     <>
-      {tags && (
+      {tags.length > 0 && (
         <StyledTags>
           <StyledTagIcon themeColor={themeColor}>
             <TiTags />

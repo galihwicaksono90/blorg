@@ -10,19 +10,16 @@ module.exports = {
     title: `Goblorg`,
     author: `Galih Wicaksono`,
     description: `A self taught front-end developer documenting and sharing his learning process`,
-    // {
-    //   name: `Twitter`,
-    //   url: `https://twitter.com/galihwicaksono`,
-    // },
-    // {
-    //   name: `Github`,
-    //   url: `https://github.com/gorillahobo`,
-    // },
-    // {
-    //   name: `Proudly hosted on Netlify`,
-    //   url: `https://www.galihwicaksono.com/`,
-    // },
-    // ],
+    social: [
+      {
+        name: `Github`,
+        url: `https:github.com/gorillahobo`,
+      },
+      {
+        name: `Proudly hosted on Netlify`,
+        url: `https://pedantic-fermat-1ba180.netlify.app/`,
+      },
+    ],
   },
   plugins: [
     {

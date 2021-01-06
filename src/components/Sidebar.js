@@ -52,9 +52,9 @@ const SidebarItem = ({ children, to, className }) => {
   )
 }
 
-const Sidebar = ({ currentPage = "", sidebar }) => {
+const Sidebar = ({ currentPage = "" }) => {
   const { globalState } = useContext(GlobalContext)
-  const { themeColor } = globalState
+  const { themeColor, sidebar } = globalState
   return (
     <StyledSidebar sidebar={sidebar} themeColor={themeColor}>
       <SidebarItem to="/" className={currentPage === "index" ? "active" : ""}>

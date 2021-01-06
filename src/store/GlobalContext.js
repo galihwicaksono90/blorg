@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from "react"
 import GlobalReducer from "./GlobalReducer"
 
 const GlobalContext = createContext()
-const defaultValues = { themeColor: "light" }
+const defaultValues = { themeColor: "light", sidebar: false }
 
 export const GlobalContextProvider = ({ children }) => {
   const [globalState, globalDispatch] = useReducer(GlobalReducer, defaultValues)

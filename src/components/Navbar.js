@@ -21,7 +21,7 @@ const StyledNavbar = styled.ul`
   }
 `
 
-const Navbar = ({ currentPage, sidebarHandler, sidebar }) => {
+const Navbar = ({ currentPage, sidebarHandler }) => {
   const { globalState } = useContext(GlobalContext)
   const { themeColor } = globalState
   return (
@@ -38,7 +38,7 @@ const Navbar = ({ currentPage, sidebarHandler, sidebar }) => {
       >
         About
       </NavbarItem>
-      <Burger sidebarHandler={sidebarHandler} sidebar={sidebar} />
+      <Burger />
       <ThemeSwitcher />
     </StyledNavbar>
   )

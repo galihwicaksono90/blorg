@@ -24,11 +24,14 @@ const StyledBurger = styled.button`
     }
   }
 `
-const Burger = ({ sidebarHandler, sidebar }) => {
-  const { globalState } = useContext(GlobalContext)
-  const { themeColor } = globalState
+const Burger = () => {
+  const { globalState, globalDispatch } = useContext(GlobalContext)
+  const { themeColor, sidebar } = globalState
   return (
-    <StyledBurger onClick={() => sidebarHandler()} themeColor={themeColor}>
+    <StyledBurger
+      onClick={() => globalDispatch({ type: "sidebarControl" })}
+      themeColor={themeColor}
+    >
       {sidebar ? <FaRegWindowClose /> : <GiHamburgerMenu />}
     </StyledBurger>
   )

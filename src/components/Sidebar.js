@@ -17,6 +17,20 @@ const StyledSidebar = styled.div`
   border-bottom: 2px solid
     ${props => props.theme.colors[props.themeColor].foreground};
 
+  & a {
+    text-decoration: none;
+  }
+  & h3 {
+    color: ${props => props.theme.colors[props.themeColor].foreground};
+    font-family: ${props => props.theme.fonts.title};
+    font-weight: normal;
+    &.active {
+      color: ${props => props.theme.colors[props.themeColor].magenta};
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
   @media screen and (max-width: 720px) {
     display: flex;
     flex-direction: column;
@@ -25,18 +39,6 @@ const StyledSidebar = styled.div`
     box-shadow: ${props => props.theme.shadows.shadow2};
     & div {
       margin: ${props => props.theme.spacings.small} auto;
-    }
-  }
-  & a {
-    text-decoration: none;
-  }
-  & h3 {
-    color: ${props => props.theme.colors[props.themeColor].foreground};
-    &.active {
-      color: ${props => props.theme.colors[props.themeColor].magenta};
-    }
-    &:hover {
-      text-decoration: underline;
     }
   }
 `

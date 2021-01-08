@@ -2,14 +2,16 @@ import React, { createContext, useReducer } from "react"
 import GlobalReducer from "./GlobalReducer"
 
 const GlobalContext = createContext()
+
+let defaultValues
 if (typeof window.localStorage !== "undefined") {
   if (localStorage.getItem("themeColor")) {
-    const defaultValues = {
+    defaultValues = {
       themeColor: localStorage.getItem("themeColor"),
       sudebar: false,
     }
   } else {
-    const defaultValues = { themeColor: "light", sidebar: false }
+    defaultValues = { themeColor: "light", sidebar: false }
   }
 }
 

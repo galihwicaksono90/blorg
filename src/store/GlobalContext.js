@@ -5,13 +5,9 @@ const GlobalContext = createContext()
 
 let defaultValues
 if (typeof window.localStorage !== "undefined") {
-  if (localStorage.getItem("themeColor")) {
-    defaultValues = {
-      themeColor: localStorage.getItem("themeColor"),
-      sudebar: false,
-    }
-  } else {
-    defaultValues = { themeColor: "light", sidebar: false }
+  defaultValues = {
+    themeColor: localStorage.getItem("themeColor"),
+    sudebar: false,
   }
 }
 

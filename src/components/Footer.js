@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import GlobalContext from "../store/GlobalContext"
 import styled from "@emotion/styled"
-import { AiFillGithub, AiFillLinkedin, AiFillFile } from "react-icons/ai"
+import { AiFillGithub, AiFillDashboard, AiFillFile } from "react-icons/ai"
 
 const StyledFooter = styled.footer`
   margin-top: auto;
@@ -48,7 +48,7 @@ const LinkLogos = () => {
         <AiFillGithub />
       </LinkLogo>
       <LinkLogo to="https://www.duckduckgo.com">
-        <AiFillLinkedin />
+        <AiFillDashboard />
       </LinkLogo>
       <LinkLogo to="resume.txt">
         <AiFillFile />

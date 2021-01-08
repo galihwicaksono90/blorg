@@ -2,7 +2,16 @@ import React, { createContext, useReducer } from "react"
 import GlobalReducer from "./GlobalReducer"
 
 const GlobalContext = createContext()
-const defaultValues = { themeColor: "light", sidebar: false }
+if (typeof window.localStorage !== "undefined") {
+  if (localStorage.getItem("themeColor")) {
+    const defaultValues = {
+      themeColor: localStorage.getItem("themeColor"),
+      sudebar: false,
+    }
+  } else {
+    const defaultValues = { themeColor: "light", sidebar: false }
+  }
+}
 
 export const GlobalContextProvider = ({ children }) => {
   const [globalState, globalDispatch] = useReducer(GlobalReducer, defaultValues)

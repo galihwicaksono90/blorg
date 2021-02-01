@@ -50,7 +50,7 @@ const LinkLogos = () => {
       <LinkLogo to="https://www.duckduckgo.com">
         <AiFillLinkedin />
       </LinkLogo>
-      <LinkLogo to="resume.txt">
+      <LinkLogo to="resume.pdf">
         <AiFillFile />
       </LinkLogo>
     </StyledLinkLogos>

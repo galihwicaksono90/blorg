@@ -27,9 +27,6 @@ const Navbar = ({ currentPage, sidebarHandler }) => {
   return (
     <StyledNavbar themeColor={themeColor}>
       <NavbarItem to="/" className={currentPage === "index" ? "active" : ""}>
-        Home
-      </NavbarItem>
-      <NavbarItem to="/blog" className={currentPage === "blog" ? "active" : ""}>
         Blog
       </NavbarItem>
       <NavbarItem

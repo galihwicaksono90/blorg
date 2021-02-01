@@ -20,7 +20,8 @@ const StyledLayout = styled.div`
   h4,
   h5,
   a,
-  p {
+  p,
+  li {
     font-family: ${props => props.theme.fonts.main};
   }
   & a {

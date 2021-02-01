@@ -22,8 +22,6 @@ const StyledPostListItem = styled.li`
   & .desc {
     overflow: hidden;
     text-overflow: ellipsis;
-    & p {
-    }
   }
 
   & > *:not(:last-child) {
@@ -53,14 +51,13 @@ const PostCard = ({ node }) => {
   const { themeColor } = globalState
   const { title, date, description, tags, export_file_name } = node.metadata
   const { timeToRead } = node
-  console.log(node)
   return (
     <StyledPostListItem themeColor={themeColor}>
       <Link to={`/blog/${export_file_name}`} className="title">
         <h2>{title}</h2>
       </Link>
       <PostListDescription date={date} timeToRead={timeToRead} />
-      <div className="desc">{description}</div>
+      <p className="desc">{description}</p>
       <PostTags tags={tags} />
     </StyledPostListItem>
   )

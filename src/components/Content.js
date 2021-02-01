@@ -27,15 +27,22 @@ const StyledContent = styled.div`
     }
   }
 
+  // & code {
+  //   font-family: ${props => props.theme.fonts.code};
+  //   font-size: 0.9rem;
+  //   color: #171717;
+  //   background-color: #ebdbb2;
+  // }
   & pre {
-    background: #282828;
+    background: #171717;
     padding: ${props => props.theme.spacings.small};
     overflow: auto;
 
     & code {
-      color: #ebdbb2;
-      font-family: ${props => props.theme.fonts.cod};
+      font-family: ${props => props.theme.fonts.code};
       font-size: 0.9rem;
+      background-color: #171717;
+      color: #ebdbb2;
 
       // uncomment below to create per language syntax highlight
       // &.language-js {
@@ -49,13 +56,11 @@ const StyledContent = styled.div`
         &.hljs-params {
           color: ${props => props.theme.colors.yellow};
         }
-        &.xml {
-          & .hljs-name {
-            color: ${props => props.theme.colors.yellow};
-          }
-          & .hljs-attr {
-            color: ${props => props.theme.colors.green};
-          }
+        & .hljs-name {
+          color: ${props => props.theme.colors.yellow};
+        }
+        & .hljs-attr {
+          color: ${props => props.theme.colors.green};
         }
       }
       // }

@@ -7,55 +7,210 @@
 * PUBLISHED Create a blog using Gatsby and Org-mode :emacs:web:orgMode:
 CLOSED: [2020-12-24 Thu 16:46]
 :PROPERTIES:
-:IMAGE: ./images/doom-emacs.png
+:IMAGE: ./images/blog-template.png
 :CATEGORY: Lesson
+:DESCRIPTION: Membuat blog gatsby menggunakan org-mode
 :END:
 
-** First Things First... What is /org-mode/?
-I write down my thoughts here at [[https://www.galihwicaksono.com][galihwicaksono.com]]. I think about Programming, Emacs, Productivity and other nerdy stuff. 9 to 5, Mon to Fri. I automate away human jobs to save money for big cooperates. In exchange of a steady income to keep my family alive.
+** Org-mode
+[[https://orgmode.org/][Org mode]] adalah sebuah mode /text markup/ dalam emacs. Kemampuannya meliputi /note taking/, daftar /todos/, perencanaan proyek, /authoring project/, [[https://en.wikipedia.org/wiki/Literate_programming][/literate programming/]], dsb -- dalam sistem text yang cepat dan efisien. Fitur-fiturnya banyak yang tidak dimiliki oleh /text markup/ lainnya, seperti Markdown.
 
-I found org-mode years ago, it is good. But it's trapped inside Emacs. I would like to use it in more places, so I built orgajs to use it on the web, or to be part of it[1]. In fact I like it enough so that I would like org-mode on all of my devices, iPhone, iPad etc. Naturally, not satisfied with existing org-mode apps, I am building one.
+Namun, kelemahan org-mode dibandingkan dengan Markdown adalah /learning curve/ yang lebih tinggi, dan penggunaanya yang biasanya terbatas pada emacs. Hal ini menyebabkan Markdown lebih populer dan lebih banyak digunakan di banyak tempat, seperti file README github, dan konten blog [[https://www.gatsbyjs.com/docs/][gatsby]]. File org-mode sendiri sebenarnya dapat dikonversikan menjadi file markdown, tetapi menurut saya hal itu menambah proses dalam membangun sebuah blog. Untungnya telah tersedia sebuah plugin ~gatsby-transformer-orga~ dalam gatsby yang berfungsi mengkonversikan file org-mode menjadi html. Berikut adalah proses saya dalam membangun blog ini. Disini saya menggunakan Arch Linux.
 
-I watch football ... that's a lie. I play video games for fun. Sinking time in technologies that excite me.
+-----
+** Setup Gatsby
+- Install ~npm~ dan ~node-js~.
+  #+begin_src bash
+  sudo pacman -S npm nodejs
+  #+end_src
 
-[[file:images/doom-emacs.png][Doom Emacs]]
+- Install ~gatsby-cli~ secara global.
+  #+begin_src bash
+npm install -g gatsby-cli
+  #+end_src
+  
+- Buat proyek ~gatsby~ baru.
+  Sebenarnya telah tersedia sebuah [[gatsby-site https://github.com/orgapp/gatsby-starter-blorg ][starter project]] yang sudah terdapat semua yang dibutuhkan untuk membuat blog gatsby dan org-mode.  Karena saya ingin membangun blog ini dari dasar, maka saya menggunakan [[https://github.com/gatsbyjs/gatsby-starter-hello-world][starter hello world]]. Dan proyek baru ini saya beri nama ~blorg~.
 
-[[youtube:https://www.youtube.com/watch?v=jb8WTKUBTw4https://www.youtube.com/watch?v=jb8WTKUBTw4][pong]]
-Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.
+  #+begin_src bash
+gatsby new blorg https://github.com/gatsbyjs/gatsby-starter-hello-world
+  #+end_src
+
+- Install plugin.
+  Masuk ke dalam folder ~blorg~ yang baru dibuat. dan install library ~gatsby-transformer-orga~ dan ~gatsby-source-filesystem~.
+
+  #+begin_src bash
+  npm install --save gatsby-transformer-orga gatsby-source-filesystem
+  #+end_src
+
+  -----
+** Konfigurasi Blorg
+Setelah semua terinstall, buka file ~gasby-config.js~ menggunakan editor text kesayangan kita semua, yang tentu saja emacs, lalu tambahkan kode berikut.
+#+BEGIN_SRC js
+module.exports = {
+    siteMetadata: {
+        title: `Blog Title Placeholder`, // website default title
+        siteUrl: `https://orga.js.org`, // domain of your site
+        author: `Name Placeholder`, // your name
+        description: `Description placeholder`, // description of website, for SEO
+        twitter: 'galihWicaksono', // your twitter handle, you can set it to false or ignore it to get rid of the "Tweet this." button
+        social: [ // your social badges, in your bio
+            { name: 'twitter', url: 'https://twitter.com/galihwicaksono },
+            { name: 'website', url: 'https://galihwicaksono.com' },
+            { name: 'email', url: 'mailto:galihwicaksono90@gmail.com' },
+        ],
+    },
+    plugins: [
+    {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+        // name: `pages`,
+        path: `${__dirname}/src/posts/`,
+        },
+    },
+    `gatsby-transformer-orga`,
+    ],
+}
+#+END_SRC
+
+Objek ~emacsiteMetadata~ berisikan data informasi tentang website yang sedang dibuat. Data ini nantinya dapat diakses dari semua page yang kita buat menggunakan ~graphql~. Opsi ~path~ pada plugin ~gatsby-souce-filesystem~ ditujukan pada folder yang berisikan file org-mode yang akan dijadikan konten blog.
+
+Buat folder baru di dalam folder ~/src/~ dengan nama ~posts~. Disini kita dapat membuat setiap postingan berdasarkan file org-mode, atau berdasarkan /header/ file org-mode. Untuk postingan berbasis /header/, tambahkan baris berikut pada /header/ file org-mode. Untuk setiap /header/ yang sudah memiliki status ~PUBLISHED~ akan dibuatkan satu blog post.
+-----
+
+** Org Files
+Objek ~emacsiteMetadata~ berisikan data informasi tentang website yang sedang dibuat. Data ini nantinya dapat diakses dari semua page yang kita buat menggunakan ~graphql~. Opsi ~path~ pada plugin ~gatsby-souce-filesystem~ ditujukan pada folder yang berisikan file org-mode yang akan dijadikan konten blog.
+
+Buat folder baru di dalam folder ~/src/~ dengan nama ~posts~. Disini kita dapat membuat setiap postingan berdasarkan file org-mode, atau berdasarkan /header/ file org-mode. Untuk postingan berbasis /header/, tambahkan baris berikut pada /header/ file org-mode. Untuk setiap /header/ yang sudah memiliki status ~PUBLISHED~ akan dibuatkan satu blog post.
+
+[[file:images/org-post.png][org-post]]
+-----
+** Membuat List Semua Post
+
+Edit file ~index.js~ dalam folder ~/src/pages/~.
 
 #+begin_src js
-const BlogTemplate = ({ data }) => {
-  const { title, date, tags, image__https } = data.orgContent.metadata
-  const { html, timeToRead } = data.orgContent
-  console.log(image__https)
-  return (
-    <>
-      <Header currentPage={"blog"} />
-      <Layout>
-        <PostLayout>
-          <PostTitle
-            title={title}
-            date={date}
-            timeToRead={timeToRead}
-            tags={tags}
-          />
-          <Content content={html} />
-        </PostLayout>
-        <Footer />
-      </Layout>
-    </>
-  )
+import React from 'react' 
+import {graphql, Link} from 'gatsby';
+
+const Home = ({data}) => {
+    const { edges } = data.allrOrgContent
+    return (
+        <ul>
+            {edges.map(({node}) => (
+                <li key={node.id}>
+                    <h1>
+                        <Link to={`/blog/${node.metadata.export_file_name}`}>{node.metadata.title}</Link>
+                    </h1>
+                    <p>{node.metadata.description}</p>
+                </li>
+            ))}
+        </ul>
+    )
 }
+
+export const query = graphql`
+  query blogQuery {
+    allOrgContent(sort: { fields: metadata___date, order: DESC }) {
+      edges {
+        node{
+          id
+          metadata {
+            title
+            export_file_name
+            description
+          }
+        }
+      }
+    }
+  }
+`
+
+export default Home
 #+end_src
 
-Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.  Etiam laoreet quam sed arcu.  Phasellus at dui in ligula mollis ultricies.  Integer placerat tristique nisl.  Praesent augue.  Fusce commodo.  Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.  Nullam libero mauris, consequat quis, varius et, dictum id, arcu.  Mauris mollis tincidunt felis.  Aliquam feugiat tellus ut neque.  Nulla facilisis, risus a rhoncus fermentum, tellus tellus lacinia purus, et dictum nunc justo sit amet elit.
+[[file:./images/blog.png]]
+-----
+** Blog Template
+Buat folder baru dalam folder ~/src/~ dengan nama ~templates~, dan buat file dengan nama ~blogTemplate.js~ di dalam folder tersebut. Masukkan kode berikut.
 
-Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.  Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Curabitur vulputate vestibulum lorem.  Fusce sagittis, libero non molestie mollis, magna orci ultrices dolor, at vulputate neque nulla lacinia eros.  Sed id ligula quis est convallis tempor.  Curabitur lacinia pulvinar nibh.  Nam a sapien.
+#+begin_src js
+import React from "react"
+import { graphql } from "gatsby"
 
-Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam euismod tellus id erat.
+const BlogTemplate = ({ data }) => {
+  const { title, date } = data.orgContent.metadata
+  const { html } = data.orgContent
+  console.log(html)
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.  Nullam tristique diam non turpis.  Cras placerat accumsan nulla.  Nullam rutrum.  Nam vestibulum accumsan nisl.
+  return (
+    <div>
+      <h1>{title}</h1>
+      <h5>{date}</h5>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+    </div>
+  )
+}
 
+export const pageQuery = graphql`
+  query BlogPostQuery($id: String!) {
+    orgContent(id: { eq: $id }) {
+      html
+      metadata {
+        title
+        date(formatString: "DD MMMM YYYY")
+      }
+    }
+  }
+`
+
+export default BlogTemplate
+
+#+end_src
+
+-----
+** Membuat Post Secara Otomatis
+Buat file dengan name ~gatsby-node.js~ di folder ~root~. Lalu tambahkan baris kode berikut.
+#+begin_src js
+const path = require("path")
+const blogTemplate = require.resolve("./src/templates/blogTemplate.js")
+
+exports.createPages = async ({ actions, graphql }) => {
+  const { createPage } = actions
+
+  const result = await graphql(`
+    query orgContentQuery {
+      allOrgContent {
+        edges {
+          node {
+            id
+            metadata {
+              export_file_name
+            }
+          }
+        }
+      }
+    }
+  `)
+  if (result.errors) {
+    reporter.panic(result.errors)
+  }
+
+  result.data.allOrgContent.edges.forEach(({ node }) =>
+    createPage({
+      path: `/blog/${node.metadata.export_file_name}`,
+      component: blogTemplate,
+      context: {
+        id: node.id,
+      },
+    })
+  )
+}
+
+#+end_src
+[[./images/blog-template.png]]
+
+-----
 * PUBLISHED BIOS Flasing using arduino :arduino:
 CLOSED: [2021-01-01 Fri 22:25]
 :PROPERTIES:
@@ -75,9 +230,3 @@ But after some further reading on the datasheet, another option came up:
 4. Assuming that the chip is fine, why don't I just make everything up myself? EEPROMs are not particularly complicated, I already had everything I needed: I had an arduino and I would have learn how SPI protocol works, how binary stored in memory, how hex data works and a bunch of other things. Best of all, I won't spend a dime. It was perfect. Or so i thought.
 
 All things considered, i choose the last option because it won't break anything (sort of). And if this doesn't work, i could just do the other options.
-* PUBLISHED Test Post
-CLOSED: [2021-01-06 Wed 15:29]
-:PROPERTIES:
-:END:
-
-testingggg

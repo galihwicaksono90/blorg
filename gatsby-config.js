@@ -47,7 +47,7 @@ module.exports = {
       resolve: "gatsby-plugin-google-fonts-v2",
       options: {
         fonts: [
-          { family: "JetBrains Mono" },
+          { family: "Source Code Pro" },
           { family: "Alfa Slab One" },
           { family: "Open Sans" },
         ],

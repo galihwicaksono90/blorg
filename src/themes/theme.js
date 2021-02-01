@@ -21,7 +21,7 @@ const theme = {
   fonts: {
     title: "Alfa Slab One, serif",
     main: `Open Sans, sans-serif`,
-    code: `JetBrains Mono, monospace`,
+    code: `Source Code Pro, monospace`,
   },
   spacings: {
     xxSmall: ".25rem",

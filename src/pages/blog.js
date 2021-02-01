@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+// import { graphql } from "gatsby"
 
 import Layout from "../components/Layout.js"
 import Article from "../components/Article.js"
@@ -27,24 +27,24 @@ const Blog = ({ data }) => {
   )
 }
 
-export const query = graphql`
-  query blogQuery {
-    allOrgContent(sort: { fields: metadata___date, order: DESC }) {
-      edges {
-        node {
-          id
-          timeToRead
-          metadata {
-            title
-            description
-            date(formatString: "DD MMMM YYYY")
-            tags
-            export_file_name
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query blogQuery {
+//     allOrgContent(sort: { fields: metadata___date, order: DESC }) {
+//       edges {
+//         node {
+//           id
+//           timeToRead
+//           metadata {
+//             title
+//             description
+//             date(formatString: "DD MMMM YYYY")
+//             tags
+//             export_file_name
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default Blog

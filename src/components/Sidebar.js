@@ -43,9 +43,10 @@ const StyledSidebar = styled.div`
   }
 `
 const SidebarItem = ({ children, to, className }) => {
+  const { globalDispatch } = useContext(GlobalContext)
   return (
     <div className={className}>
-      <Link to={to}>
+      <Link to={to} onClick={() => globalDispatch({ type: "sidebarControl" })}>
         <h3 className={className}>{children}</h3>
       </Link>
     </div>
@@ -58,12 +59,6 @@ const Sidebar = ({ currentPage = "" }) => {
   return (
     <StyledSidebar sidebar={sidebar} themeColor={themeColor}>
       <SidebarItem to="/" className={currentPage === "index" ? "active" : ""}>
-        Home
-      </SidebarItem>
-      <SidebarItem
-        to="/blog"
-        className={currentPage === "blog" ? "active" : ""}
-      >
         Blog
       </SidebarItem>
       <SidebarItem

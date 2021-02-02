@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import GlobalContext from "../store/GlobalContext"
 import styled from "@emotion/styled"
-import { AiFillGithub, AiFillLinkedin, AiFillFile } from "react-icons/ai"
+import { AiFillGithub, AiFillFile } from "react-icons/ai"
 
 const StyledFooter = styled.footer`
   margin-top: auto;
@@ -30,6 +30,9 @@ const StyleLinkLogo = styled.li`
     height: 2rem;
     width: 2rem;
     color: ${props => props.theme.colors[props.themeColor].foreground};
+    &:hover {
+      color: ${props => props.theme.colors[props.themeColor].blue};
+    }
   }
 `
 const LinkLogo = ({ children, to }) => {

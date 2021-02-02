@@ -7,7 +7,7 @@
 * PUBLISHED Create a blog using Gatsby and Org-mode :emacs:web:orgMode:
 CLOSED: [2020-12-24 Thu 16:46]
 :PROPERTIES:
-:IMAGE: ./images/blog-template.png
+:IMAGE: ./images/org-mode-gatsby.png
 :CATEGORY: Lesson
 :DESCRIPTION: Membuat blog gatsby menggunakan org-mode
 :END:
@@ -20,7 +20,7 @@ Namun, kelemahan org-mode dibandingkan dengan Markdown adalah /learning curve/ y
 -----
 ** Setup Gatsby
 - Install ~npm~ dan ~node-js~.
-  #+begin_src sh
+  #+begin_src bash
   sudo pacman -S npm nodejs
   #+end_src
 
@@ -28,7 +28,7 @@ Namun, kelemahan org-mode dibandingkan dengan Markdown adalah /learning curve/ y
   #+begin_src bash
 npm install -g gatsby-cli
   #+end_src
-  
+
 - Buat proyek ~gatsby~ baru.
   Sebenarnya telah tersedia sebuah [[gatsby-site https://github.com/orgapp/gatsby-starter-blorg ][starter project]] yang sudah terdapat semua yang dibutuhkan untuk membuat blog gatsby dan org-mode.  Karena saya ingin membangun blog ini dari dasar, maka saya menggunakan [[https://github.com/gatsbyjs/gatsby-starter-hello-world][starter hello world]]. Dan proyek baru ini saya beri nama ~blorg~.
 
@@ -90,7 +90,7 @@ Buat folder baru di dalam folder ~/src/~ dengan nama ~posts~. Disini kita dapat 
 Edit file ~index.js~ dalam folder ~/src/pages/~.
 
 #+begin_src js
-import React from 'react' 
+import React from 'react'
 import {graphql, Link} from 'gatsby';
 
 const Home = ({data}) => {
@@ -219,14 +219,15 @@ CLOSED: [2021-01-01 Fri 22:25]
 :AUTHOR:        Galih Wicaksono
 :END:
 
+I have been using Arch Linux for a year now. It is the longest distro that I have been using. But as anybody knows, you can't just settle on one distro. So I tried to install Gentoo. It wasn't as easy as any other distros that I installed before. It even manage to make my laptop stuck in the Acer logo.
+
 So this is what i did. After resetting CMOS, and because of the laptop displayed something, i concluded that it was a BIOS initialization failure. I didn't know wether it was some corrupted data in the EEPROM or the EEPROM chip itself failed. The chip was a [[https://www.winbond.com/resource-files/w25q32bv_revi_100413_wo_automotive.pdf][WINBOND W25Q32BV]]. Then I listed some options that I could do:
 
 1. Go to a repair shop, be told that "ini harus ganti motherboardnya mas,"  and spend god knows how much money. Bunch of blood sucking leeches.
 2. Buy a pre-flashed chip for Rp.85,000. Solder it myself and be done with it. This option includes the risk of buying a wrong one.
 3. Buy an empty chip, a CH341a EEPROM programmer, flash the chip and solder it. The potiential cost was Rp.10.000 for the chip and Rp.40.000 for the flasher.
+4. Assuming that the chip is fine, why don't I just make everything up myself? EEPROMs are not particularly complicated, I already have everything I needed: I have an arduino and I could potentially learn how SPI protocol works, how binary stored in memory, how hex data works and a bunch of other things. Best of all, I won't spend a dime. It was perfect. Or so i thought.
 
-But after some further reading on the datasheet, another option came up:
+All things considered, i choose the last option because it won't break anything (sort of). And if this doesn't work, i could do the other options.
 
-4. Assuming that the chip is fine, why don't I just make everything up myself? EEPROMs are not particularly complicated, I already had everything I needed: I had an arduino and I would have learn how SPI protocol works, how binary stored in memory, how hex data works and a bunch of other things. Best of all, I won't spend a dime. It was perfect. Or so i thought.
-
-All things considered, i choose the last option because it won't break anything (sort of). And if this doesn't work, i could just do the other options.
+Now, what is SPI?

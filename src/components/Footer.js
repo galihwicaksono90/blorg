@@ -6,26 +6,29 @@ import { AiFillGithub, AiFillLinkedin, AiFillFile } from "react-icons/ai"
 const StyledFooter = styled.footer`
   margin-top: auto;
   width: 100%;
-  padding: 1rem 0;
+  padding: 2rem 0 0 0;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-size: 0.85rem;
 `
 
-const StyledLinkLogos = styled.div`
-  width: 150px;
-  height: 50px;
-
+const StyledLinkLogos = styled.ul`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+
+  & li {
+    list-style: none;
+    padding: 0.5rem;
+  }
 `
-const StyleLinkLogo = styled.div`
+const StyleLinkLogo = styled.li`
   & svg {
-    height: 2.2rem;
-    width: 2.2rem;
+    height: 2rem;
+    width: 2rem;
     color: ${props => props.theme.colors[props.themeColor].foreground};
   }
 `
@@ -47,9 +50,6 @@ const LinkLogos = () => {
       <LinkLogo to="https://github.com/gorillahobo">
         <AiFillGithub />
       </LinkLogo>
-      <LinkLogo to="https://www.duckduckgo.com">
-        <AiFillLinkedin />
-      </LinkLogo>
       <LinkLogo to="resume.pdf">
         <AiFillFile />
       </LinkLogo>
@@ -60,7 +60,6 @@ const LinkLogos = () => {
 const Footer = () => {
   return (
     <StyledFooter>
-      <LinkLogos />
       <p>
         All materials © 2020, Galih Wicaksono
         <br />
@@ -69,6 +68,7 @@ const Footer = () => {
         <a href="https://github.com/orgapp/orgajs">orgajs </a> and&nbsp;
         <a href="https://www.gatsbyjs.com/">Gatsby</a>.
       </p>
+      <LinkLogos />
     </StyledFooter>
   )
 }

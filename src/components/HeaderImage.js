@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 const StyledFigure = styled.figure`
   max-height: 600px;
   margin-bottom: ${props => props.theme.spacings.medium};
-  height: auto;
+  // height: auto;
 `
 
 const HeaderImage = ({ image, description = "" }) => {

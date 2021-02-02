@@ -52,6 +52,8 @@ const theme = {
     yellow: yellow,
     green: green,
     red: red,
+    magenta: magenta,
+    black: "#414141",
   },
   shadows: {
     shadow1:

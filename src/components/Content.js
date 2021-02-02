@@ -27,12 +27,14 @@ const StyledContent = styled.div`
     }
   }
 
-  // & code {
-  //   font-family: ${props => props.theme.fonts.code};
-  //   font-size: 0.9rem;
-  //   color: #171717;
-  //   background-color: #ebdbb2;
-  // }
+  // code in paragraph highlighting
+  & code {
+    font-family: ${props => props.theme.fonts.code};
+    font-size: 0.9rem;
+    color: #282828;
+    background-color: #ebdbb2;
+  }
+
   & pre {
     background: #171717;
     padding: ${props => props.theme.spacings.small};
@@ -44,8 +46,6 @@ const StyledContent = styled.div`
       background-color: #171717;
       color: #ebdbb2;
 
-      // uncomment below to create per language syntax highlight
-      // &.language-js {
       & span {
         &.hljs-keyword {
           color: ${props => props.theme.colors.red};
@@ -56,14 +56,19 @@ const StyledContent = styled.div`
         &.hljs-params {
           color: ${props => props.theme.colors.yellow};
         }
-        & .hljs-name {
+        &.hljs-name {
           color: ${props => props.theme.colors.yellow};
         }
-        & .hljs-attr {
+        &.hljs-attr {
           color: ${props => props.theme.colors.green};
         }
+        &.hljs-built_in {
+          color: ${props => props.theme.colors.magenta};
+        }
+        &.hljs-comment {
+          color: ${props => props.theme.colors.black};
+        }
       }
-      // }
     }
   }
 

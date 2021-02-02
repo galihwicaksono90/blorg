@@ -20,7 +20,7 @@ Namun, kelemahan org-mode dibandingkan dengan Markdown adalah /learning curve/ y
 -----
 ** Setup Gatsby
 - Install ~npm~ dan ~node-js~.
-  #+begin_src bash
+  #+begin_src sh
   sudo pacman -S npm nodejs
   #+end_src
 

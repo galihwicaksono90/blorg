@@ -64,7 +64,7 @@ const Footer = () => {
   return (
     <StyledFooter>
       <p>
-        All materials © 2020, Galih Wicaksono
+        All materials © 2021, Galih Wicaksono
         <br />
         Powered by&nbsp;
         <a href="https://orgmode.org/">org-mode</a> using&nbsp;

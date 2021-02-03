@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import GlobalContext from "../store/GlobalContext"
+import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import { TiTags } from "react-icons/ti"
 
@@ -46,9 +47,11 @@ const PostTags = ({ tags = [] }) => {
             <TiTags />
           </StyledTagIcon>
           {tags.map((tag, index) => (
-            <StyledTag key={index} themeColor={themeColor}>
-              <p>{tag}</p>
-            </StyledTag>
+            <Link to={`/${tag}`}>
+              <StyledTag key={index} themeColor={themeColor}>
+                <p>{tag}</p>
+              </StyledTag>
+            </Link>
           ))}
         </StyledTags>
       )}

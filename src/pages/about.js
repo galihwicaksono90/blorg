@@ -4,11 +4,14 @@ import Article from "../components/Article.js"
 import Header from "../components/Header"
 import PageTitle from "../components/PageTitle"
 import Footer from "../components/Footer"
+import Seo from "../components/Seo"
 
+const currentPage = "about"
 const About = () => {
   return (
     <Layout>
-      <Header currentPage={"about"} />
+      <Seo title={currentPage} />
+      <Header currentPage={currentPage} />
       <Article>
         <PageTitle>About</PageTitle>
         <p>

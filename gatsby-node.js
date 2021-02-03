@@ -26,7 +26,6 @@ exports.createPages = async ({ actions, graphql, page }) => {
     reporter.panic(result.errors)
   }
 
-  console.log(result)
   result.data.allOrgContent.edges.forEach(({ node }) =>
     createPage({
       path: `/blog/${node.metadata.export_file_name}`,

@@ -8,12 +8,16 @@ import PageTitle from "../components/PageTitle"
 import Footer from "../components/Footer"
 import PostCard from "../components/PostCard"
 import PostCardContent from "../components/PostCardContent"
+import Seo from "../components/Seo"
+
+const currentPage = "index"
 
 const Home = ({ data }) => {
   const { edges } = data.allOrgContent
   return (
     <Layout>
-      <Header currentPage={"index"} />
+      <Seo title={currentPage} />
+      <Header currentPage={currentPage} />
       <Article>
         <PageTitle>Latest Posts</PageTitle>
         <PostCard>

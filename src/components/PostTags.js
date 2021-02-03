@@ -46,9 +46,9 @@ const PostTags = ({ tags = [] }) => {
           <StyledTagIcon themeColor={themeColor}>
             <TiTags />
           </StyledTagIcon>
-          {tags.map((tag, index) => (
-            <Link to={`/${tag}`}>
-              <StyledTag key={index} themeColor={themeColor}>
+          {tags.map(tag => (
+            <Link to={`/${tag}`} key={tag}>
+              <StyledTag themeColor={themeColor}>
                 <p>{tag}</p>
               </StyledTag>
             </Link>

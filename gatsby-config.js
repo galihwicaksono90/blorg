@@ -10,16 +10,10 @@ module.exports = {
     title: `Goblorg`,
     author: `Galih Wicaksono`,
     description: `A self taught front-end developer documenting and sharing his learning process`,
-    social: [
-      {
-        name: `Github`,
-        url: `https:github.com/gorillahobo`,
-      },
-      {
-        name: `Proudly hosted on Netlify`,
-        url: `https://pedantic-fermat-1ba180.netlify.app/`,
-      },
-    ],
+    social: {
+      github: { url: `https:github.com/gorillahobo` },
+      website: { url: `https://www.galihwicaksono.xyz` },
+    },
   },
   plugins: [
     {
@@ -43,6 +37,7 @@ module.exports = {
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-google-fonts-v2",
       options: {

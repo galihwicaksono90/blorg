@@ -8,12 +8,18 @@ import PostTitle from "../components/PostTitle"
 import HeaderImage from "../components/HeaderImage"
 import Content from "../components/Content"
 import Footer from "../components/Footer"
+import Seo from "../components/Seo"
 
 const BlogTemplate = ({ data }) => {
   const { title, date, tags, image, description } = data.orgContent.metadata
   const { html, timeToRead } = data.orgContent
   return (
     <Layout>
+      <Seo
+        title={title}
+        isBlogPost={true}
+        image={image.childImageSharp.fluid}
+      />
       <Header currentPage={"index"} />
       <Article>
         <PostTitle

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
 import GlobalContext from "../store/GlobalContext"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import styled from "@emotion/styled"
 
 import Navbar from "./Navbar"
@@ -49,16 +49,6 @@ const Header = ({ currentPage = "" }) => {
   const { globalState } = useContext(GlobalContext)
   const { themeColor } = globalState
 
-  const data = useStaticQuery(graphql`
-    query headerQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <MainHeader themeColor={themeColor}>
       <StyledHeader currentPage={currentPage} themeColor={themeColor}>
@@ -68,7 +58,7 @@ const Header = ({ currentPage = "" }) => {
           sidebar={sidebar}
         />
         <Link to="/">
-          <h1>{data.site.siteMetadata.title}</h1>
+          <h1>Goblorg</h1>
         </Link>
       </StyledHeader>
       <Sidebar currentPage={currentPage} sidebar={sidebar} />

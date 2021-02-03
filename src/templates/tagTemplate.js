@@ -8,16 +8,16 @@ import PageTitle from "../components/PageTitle"
 import Footer from "../components/Footer"
 import PostCard from "../components/PostCard"
 import PostCardContent from "../components/PostCardContent"
+import Seo from "../components/Seo"
 
-const TagsTemplate = props => {
-  console.log(props)
-  const { data } = props
+const TagsTemplate = ({ data, pageContext }) => {
   const { edges } = data.allOrgContent
   return (
     <Layout>
+      <Seo title={`:${pageContext.tag}:`} />
       <Header currentPage={"index"} />
       <Article>
-        <PageTitle>Posts with the tag "{props.pageContext.tag}"</PageTitle>
+        <PageTitle>Posts tagged :{pageContext.tag}:</PageTitle>
         <PostCard>
           {edges.map(({ node }) => (
             <PostCardContent node={node} key={node.id} />

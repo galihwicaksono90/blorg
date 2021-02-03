@@ -10,7 +10,6 @@ import Content from "../components/Content"
 import Footer from "../components/Footer"
 
 const BlogTemplate = ({ data }) => {
-  console.log(data)
   const { title, date, tags, image, description } = data.orgContent.metadata
   const { html, timeToRead } = data.orgContent
   return (

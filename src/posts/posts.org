@@ -232,3 +232,100 @@ All things considered, i choose the last option because it won't break anything 
 
 Now, what is SPI?
 
+* PUBLISHED Tutorial install NGINX PHP dan MariaDB di windows
+CLOSED: [2021-02-12 Fri 13:45]
+:PROPERTIES:
+:IMAGE:         ./images/php.png
+:DESCRIPTION:   Menginstall php memang sangat membingungkan
+:AUTHOR:        Galih Wicaksono
+:END:
+
+** Intall NGINX
+Download NGINX di [[https://nginx.org/en/docs/windows.html][link ini]]. Pilih ~nginx/Windows-1.19.6~ untuk versi Windows. Buat folder baru di dalam drive c: dengan nama nginx. Ekstrak file yang sudah diunduh tadi ke dalam folder tersebut. Jalankan command line, lalu ketik perintah berikut untuk masuk ke dalam folder nginx, dan untuk menjalankan aplikasi nginx.
+#+begin_src sh
+cd C:\nginx
+nginx.exe
+#+end_src
+** Konfigurasi NGINX
+Buka file ~C:/nginx/conf/nginx.conf~ menggunakan text editor kesayangan anda. Uncomment (hapus karakter # disetiap baris) dan edit baris-baris berikut.
+#+begin_src conf
+location ~ .php$ {
+    root html;
+    fastcgi_pass 127.0.0.1:9000;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+}
+#+end_src
+
+Dan juga edit baris-baris berikut.
+#+begin_src conf
+location / {
+    root html;
+    index.html index.htm;
+}
+#+end_src
+
+menjadi
+
+#+begin_src conf
+location / {
+    root html;
+    index.php index.html index.htm;
+}
+#+end_src
+
+
+Buka browser, dan buka alamat ~127.0.0.1~. Apabila terinstall dengan benar, maka akan muncul tampilan sebagai berikut.
+
+[[file:images/nginx-welcome-screen.png][nginx]]
+
+Sebagai catatan, perintah-perintah dibawah dapat dijalankan untuk mengatur nginx.
+#+begin_src sh
+nginx.exe -s stop
+nginx.exe -s qite
+nginx.exe -s reload
+nginx.exe -s reopen
+#+end_src
+
+** Install PHP
+Download php dari [[https://windows.php.net/download/][link ini]]. Pilih versi Non Thread Safe dengan versi x86 untuk windows 32bit atau versi x64 untuk windows 64bit. Di dalam folder nginx, buatlah folder baru dengan nama php. Ekstrak file yang sudah diunduh ke dalam folder tersebut. Buat folder baru di dalam folder ~C:\nginx\logs~ dengan nama php. Ubah file ~config.ini-production~ di dalam folder ~C:\nginx\php\~  menjadi ~php.ini~. 
+** Konfigurasi PHP
+Buka file php.ini di dalam folder C:\nginx\php dengan text editor. Uncomment ( hapus karakter ; )  dari tiap baris berikut.
+#+begin_src php
+extension=bz2
+extension=curl
+extension=gd2
+extension=gettext
+extension=imap
+extension=mbstring
+extension=exif
+extension=mysqli
+extension=openssl
+extension=sqlite3
+#+end_src
+
+Buka command line baru, dan masukkan perintah berikut.
+#+begin_src sh
+cd C:/nginx/php
+php-cgi.exe -b 9000
+#+end_src
+
+Untuk menghentikan applikasi php-cgi.exe ini, tekan tombol ctrl+c.
+
+** index.php File
+Di dalam folder C:\nginx\html buat file baru dengan nama index.php. Dengan menggunakan text editor, tambahkan kode berikut.
+#+begin_src html
+<?php
+   phpinfo()
+?>
+#+end_src
+
+Pada command prompt nginx tadi, masukkan perintah.
+#+begin_src sh
+nginx.exe -s reload
+#+end_src
+
+Buka browser, dan masukkan alamat 127.0.0.1:9000
+
+[[file:images/phpinfo.png][phpinfo]]

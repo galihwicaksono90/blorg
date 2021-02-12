@@ -10,6 +10,7 @@ const StyledContent = styled.div`
     color: ${props => props.theme.colors[props.themeColor].foreground};
     font-family: ${props => props.theme.fonts.title};
     font-weight: normal;
+    margin-top: 2rem;
   }
   & p {
     text-indent: ${props => props.theme.spacings.medium};

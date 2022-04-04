@@ -35,12 +35,17 @@ const StyleLinkLogo = styled.li`
     }
   }
 `
-const LinkLogo = ({ children, to }) => {
+const LinkLogo = ({ children, to, newTab = false }) => {
   const { globalState } = useContext(GlobalContext)
   const { themeColor } = globalState
   return (
     <StyleLinkLogo themeColor={themeColor}>
-      <a href={to} download>
+      <a
+        href={to}
+        download
+        target={newTab ? "_blank" : null}
+        rel="noopener noreferrer"
+      >
         {children}
       </a>
     </StyleLinkLogo>
@@ -50,7 +55,7 @@ const LinkLogo = ({ children, to }) => {
 const LinkLogos = () => {
   return (
     <StyledLinkLogos>
-      <LinkLogo to="https://github.com/galihwicaksono90">
+      <LinkLogo newTab to="https://github.com/galihwicaksono90">
         <AiFillGithub />
       </LinkLogo>
       <LinkLogo to="resume.pdf">
@@ -64,7 +69,7 @@ const Footer = () => {
   return (
     <StyledFooter>
       <p>
-        All materials © 2021, Galih Wicaksono
+        All materials © 2022, Galih Wicaksono
         <br />
         Powered by&nbsp;
         <a href="https://orgmode.org/">org-mode</a> using&nbsp;

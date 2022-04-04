@@ -50,7 +50,7 @@ const LinkLogo = ({ children, to }) => {
 const LinkLogos = () => {
   return (
     <StyledLinkLogos>
-      <LinkLogo to="https://github.com/gorillahobo">
+      <LinkLogo to="https://github.com/galihwicaksono90">
         <AiFillGithub />
       </LinkLogo>
       <LinkLogo to="resume.pdf">

@@ -55,7 +55,7 @@ module.exports = {
         description: `Description placeholder`, // description of website, for SEO
         twitter: 'galihWicaksono', // your twitter handle, you can set it to false or ignore it to get rid of the "Tweet this." button
         social: [ // your social badges, in your bio
-            { name: 'twitter', url: 'https://twitter.com/galihwicaksono },
+            { name: 'twitter', url: 'https://twitter.com/galihwicaksono' },
             { name: 'website', url: 'https://galihwicaksono.com' },
             { name: 'email', url: 'mailto:galihwicaksono90@gmail.com' },
         ],
@@ -211,6 +211,7 @@ exports.createPages = async ({ actions, graphql }) => {
 [[./images/blog-template.png]]
 
 -----
+
 * PUBLISHED BIOS Flasing using arduino :arduino:
 CLOSED: [2021-01-01 Fri 22:25]
 :PROPERTIES:
